@@ -6,9 +6,9 @@ public class Destroy : MonoBehaviour
 {
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "")
+        if (collision.gameObject.tag == "tama")
         {
-            Destroy(gameObject);
+            Destroy(gameObject,0.2f);
         }
     }
 }

@@ -8,7 +8,7 @@ public class GameClear : MonoBehaviour
     private static GameClear ms_instane = null;
     private GameObject[] enemyBox;
 
-    public static void StartGameOver()
+    public static void StartGameClear()
     {
         ms_instane.gameObject.SetActive(true);
     }
@@ -20,7 +20,7 @@ public class GameClear : MonoBehaviour
     }
     void Update()
     {
-        enemyBox = GameObject.FindGameObjectsWithTag("Enemy");
+        enemyBox = GameObject.FindGameObjectsWithTag("oni");
 
         print("ìGÇÃêî:"+enemyBox.Length);
 
