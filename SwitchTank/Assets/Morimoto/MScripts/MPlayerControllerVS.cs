@@ -15,6 +15,9 @@ public class MPlayerControllerVS : MonoBehaviour
 
     private float velocity = 0.05f;
 
+    [SerializeField]
+    private float max_speed = 0.06f;
+
     //‰¡“ü—Í
     private float m_RightKeyInput = 0f;
     private float m_LeftKeyInput = 0f;
@@ -48,37 +51,37 @@ public class MPlayerControllerVS : MonoBehaviour
             case 1:
                 if (Input.GetKey(KeyCode.W))
                 {
-                    if (velocity < 0.06) m_rigidbody.velocity += new Vector3(0,0, velocity);
+                    if (velocity < max_speed) m_rigidbody.velocity += new Vector3(0,0, velocity);
                 }
                 if (Input.GetKey(KeyCode.S))
                 {
-                    if (velocity < 0.06) m_rigidbody.velocity -= new Vector3(0, 0, velocity);
+                    if (velocity < max_speed) m_rigidbody.velocity -= new Vector3(0, 0, velocity);
                 }
                 if (Input.GetKey(KeyCode.D))
                 {
-                    if (velocity < 0.06) m_rigidbody.velocity += new Vector3(velocity,0,0);
+                    if (velocity < max_speed) m_rigidbody.velocity += new Vector3(velocity,0,0);
                 }
                 if (Input.GetKey(KeyCode.A))
                 {
-                    if (velocity < 0.06) m_rigidbody.velocity -= new Vector3(velocity, 0, 0);
+                    if (velocity < max_speed) m_rigidbody.velocity -= new Vector3(velocity, 0, 0);
                 }
             break;
             case 2:
                 if (Input.GetKey(KeyCode.UpArrow))
                 {
-                    if (velocity < 0.06) m_rigidbody.velocity += new Vector3(0, 0, velocity);
+                    if (velocity < max_speed) m_rigidbody.velocity += new Vector3(0, 0, velocity);
                 }
                 if (Input.GetKey(KeyCode.DownArrow))
                 {
-                    if (velocity < 0.06) m_rigidbody.velocity -= new Vector3(0, 0, velocity);
+                    if (velocity < max_speed) m_rigidbody.velocity -= new Vector3(0, 0, velocity);
                 }
                 if (Input.GetKey(KeyCode.RightArrow))
                 {
-                    if (velocity < 0.06) m_rigidbody.velocity += new Vector3(velocity, 0, 0);
+                    if (velocity < max_speed) m_rigidbody.velocity += new Vector3(velocity, 0, 0);
                 }
                 if (Input.GetKey(KeyCode.LeftArrow))
                 {
-                    if (velocity < 0.06) m_rigidbody.velocity -= new Vector3(velocity, 0, 0);
+                    if (velocity < max_speed) m_rigidbody.velocity -= new Vector3(velocity, 0, 0);
                 }
             break;
         }

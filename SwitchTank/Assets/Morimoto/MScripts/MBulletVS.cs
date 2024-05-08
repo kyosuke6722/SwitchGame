@@ -63,10 +63,12 @@ public class MBulletVS : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
             Destroy(col.gameObject);
+            Destroy(this.gameObject);
         }
         if (col.gameObject.tag == "Enemy")
         {
             Destroy(col.gameObject);
+            Destroy(this.gameObject);
         }
 
         Vector3 m_refrectVec = Vector3.Reflect(this.m_lastVec, col.contacts[0].normal);
