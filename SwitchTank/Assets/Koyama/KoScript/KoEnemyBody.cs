@@ -6,7 +6,7 @@ public class KoEnemyBody : MonoBehaviour
 {
     //ˆÚ“®‘¬“x
     [SerializeField]
-    private float m_moveSpeed = 0.1f;
+    private float m_moveSpeed = 1.0f;
 
     private Rigidbody m_rigidbody = null;
 
