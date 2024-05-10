@@ -9,8 +9,8 @@ public class owari : MonoBehaviour
     {
         if (collision.gameObject.tag == "jirai")
         {
-            //GameOver.StartGameOver();
-            GameClear.StartGameClear();
+            GameOver.StartGameOver();
+            //GameClear.StartGameClear();
             Destroy(gameObject, 0.2f);
 
         }

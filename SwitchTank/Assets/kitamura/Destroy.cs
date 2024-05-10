@@ -6,7 +6,7 @@ public class Destroy : MonoBehaviour
 {
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "tama")
+        if (collision.gameObject.tag == "Bullet")
         {
             Destroy(gameObject,0.2f);
         }
