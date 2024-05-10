@@ -15,7 +15,7 @@ public class FootMine : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "tama")
+        if (collision.gameObject.tag == "at_mine_LOD0")
         {
             Destroy(gameObject, 0.2f);
             exploder.enabled = true;
