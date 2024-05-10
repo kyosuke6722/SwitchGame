@@ -1,23 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MButtonEvent : MonoBehaviour
 {
     [SerializeField]
-    private Text m_label;
-
-    private int m_conut = 0;
+    private int m_stage = 0;
 
     void Start()
     {
-        m_label.text = $"{m_conut}";
+        
     }
 
     public void OnPressed()
     {
-        m_conut++;
-        m_label.text = $"{m_conut}";
+        SwitchScene();
+    }
+
+    public void SwitchScene()
+    {
+        switch (m_stage)
+        {
+            case 0:
+                SceneManager.LoadScene("MNextScene");
+                break;
+            case 1:
+                SceneManager.LoadScene("MSceneVS1");
+                break;
+            case 2:
+                SceneManager.LoadScene("MSceneVS2");
+                break;
+        }
+        
     }
 }
