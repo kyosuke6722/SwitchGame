@@ -10,6 +10,7 @@ public class KoEnemyBody : MonoBehaviour
 
     private Rigidbody m_rigidbody = null;
 
+    //í«ê’ëŒè€
     public GameObject target;
 
     void Start()
