@@ -29,8 +29,9 @@ public class GameClear : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Scene scene=SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            //Scene scene=SceneManager.GetActiveScene();
+            //SceneManager.LoadScene(scene.name);
+            StageManager.StartStageManager();
         }
     }
 }

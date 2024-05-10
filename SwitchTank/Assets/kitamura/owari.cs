@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class owari : MonoBehaviour
 {
-   
+    public GameObject effectPrefab;
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "jirai")
@@ -12,6 +12,10 @@ public class owari : MonoBehaviour
             GameOver.StartGameOver();
             //GameClear.StartGameClear();
             Destroy(gameObject, 0.2f);
+
+            GameObject effect=Instantiate(effectPrefab,transform.position,Quaternion.identity);
+
+            Destroy(effect,2.0f);
 
         }
     }
