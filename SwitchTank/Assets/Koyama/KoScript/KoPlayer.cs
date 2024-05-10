@@ -17,10 +17,6 @@ public class KoPlayer : MonoBehaviour
     [SerializeField]
     private float m_intervalTime = 5.0f;
     private float m_interval=0.0f;
-    //”½“®
-    [SerializeField]
-    private float m_recoilTime = 1.0f;
-    private float m_recoil=0.0f;
 
     //ˆÚ“®‘¬“x
     [SerializeField]
@@ -56,10 +52,7 @@ public class KoPlayer : MonoBehaviour
     private void Update()
     {
         m_interval-=Time.deltaTime;
-        m_recoil -= Time.deltaTime;
-
-        if(m_recoil<0)
-        {
+        
             //ˆÚ“®ƒL[“ü—ÍŽæ“¾
             m_horizontalKeyInput = Input.GetAxis("Horizontal");
             m_verticalKeyInput = Input.GetAxis("Vertical");
@@ -72,9 +65,9 @@ public class KoPlayer : MonoBehaviour
                 Vector3 moveDir = CalcMoveDir(m_horizontalKeyInput, m_verticalKeyInput);
                 transform.forward = moveDir.normalized;
             }
-        }
 
         //’e‚ð”­ŽË
+        if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (m_interval < 0)
             {
@@ -90,7 +83,6 @@ public class KoPlayer : MonoBehaviour
                     //’e”­ŽË
                     bulletrb.AddForce(transform.forward * m_pow, ForceMode.Impulse);
                 }
-                m_recoil = m_recoilTime;
                 m_interval = m_intervalTime;
             }
         }

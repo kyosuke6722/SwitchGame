@@ -31,7 +31,7 @@ public class KoEnemyHead : MonoBehaviour
 
     private void Start()
     {
-        m_interval = m_intervalTime;
+        m_interval = m_intervalTime+Random.Range(-1.0f,1.0f);
     }
 
     void Update()
@@ -66,7 +66,7 @@ public class KoEnemyHead : MonoBehaviour
                 bulletrb.AddForce(transform.forward*m_pow, ForceMode.Impulse);
             }
             m_recoil = m_recoilTime;
-            m_interval = m_intervalTime;
+            m_interval = m_intervalTime + Random.Range(-1.0f, 1.0f); ;
         }
     }
 }
