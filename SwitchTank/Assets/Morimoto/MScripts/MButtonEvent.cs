@@ -32,6 +32,12 @@ public class MButtonEvent : MonoBehaviour
             case 2:
                 SceneManager.LoadScene("MSceneVS2");
                 break;
+            case 3:
+                SceneManager.LoadScene("MTitle");
+                break;
+            case 4:
+                SceneManager.LoadScene("MSceneVS1AI");
+                break;
         }
         
     }

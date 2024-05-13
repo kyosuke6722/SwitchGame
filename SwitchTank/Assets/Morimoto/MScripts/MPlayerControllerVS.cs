@@ -84,6 +84,9 @@ public class MPlayerControllerVS : MonoBehaviour
                     if (velocity < max_speed) m_rigidbody.velocity -= new Vector3(velocity, 0, 0);
                 }
             break;
+            case 3:
+                
+                break;
         }
     }
 }

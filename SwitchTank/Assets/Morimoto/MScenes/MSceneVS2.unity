@@ -865,12 +865,12 @@ GameObject:
   - component: {fileID: 515279240}
   - component: {fileID: 515279241}
   m_Layer: 5
-  m_Name: ButtoMenu
+  m_Name: ButtonTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &515279240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,7 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acee1de93c5bbc7489c5a163f8eeead4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_stage: 0
+  m_stage: 3
 --- !u!114 &515279242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1264,7 +1264,7 @@ GameObject:
   - component: {fileID: 625895811}
   - component: {fileID: 625895812}
   m_Layer: 5
-  m_Name: ButtoMenu
+  m_Name: ButtoTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1338,7 +1338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acee1de93c5bbc7489c5a163f8eeead4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_stage: 0
+  m_stage: 3
 --- !u!114 &625895813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1582,7 +1582,7 @@ GameObject:
   - component: {fileID: 721034759}
   - component: {fileID: 721034758}
   m_Layer: 5
-  m_Name: TextMenu
+  m_Name: TextTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1640,7 +1640,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Menu
+  m_Text: 'Title
 
 '
 --- !u!222 &721034759
@@ -3553,7 +3553,7 @@ GameObject:
   - component: {fileID: 1601539149}
   - component: {fileID: 1601539148}
   m_Layer: 5
-  m_Name: TextMenu
+  m_Name: TextTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3611,7 +3611,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Menu
+  m_Text: 'Title
 
 '
 --- !u!222 &1601539149

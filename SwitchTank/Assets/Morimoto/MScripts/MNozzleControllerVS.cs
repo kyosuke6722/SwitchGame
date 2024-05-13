@@ -19,12 +19,15 @@ public class MNozzleControllerVS : MonoBehaviour
 
     private float m_angle;
 
+    private int m_time = 0;
+
     public static int m_count = 5;
 
     public static int m_countVS = 5;
 
     private void Update()
     {
+        m_time++;
         switch (m_player)
         {
             case 1:
@@ -67,6 +70,22 @@ public class MNozzleControllerVS : MonoBehaviour
                     this.transform.Rotate(new Vector3(0f, m_angle, 0f));
                 }
                 if (Input.GetKeyDown(KeyCode.Backslash))//]
+                {
+                    if (m_countVS > 0)
+                    {
+                        m_countVS--;
+                        Instantiate
+                            (
+                                m_bullet,
+                                m_core.transform.position,
+                                this.transform.rotation
+                            );
+                        m_bullet.transform.forward = this.transform.forward;
+                    }
+                }
+                break;
+            case 3:
+                if (m_time%60==0)//]
                 {
                     if (m_countVS > 0)
                     {
