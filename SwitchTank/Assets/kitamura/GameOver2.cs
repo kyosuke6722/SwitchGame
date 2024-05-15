@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameOver2 : MonoBehaviour
 {
-    private static GameOver ms_instance = null;
+    private static GameOver2 ms_instance = null;
 
     public static bool IsGameOver()
     {
