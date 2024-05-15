@@ -28,8 +28,8 @@ public class KoBullet : MonoBehaviour
         //íÔ‚É“–‚½‚Á‚½ê‡
         if (tag == "Player" || tag == "Enemy")
         {
-            //íÔ‚Éƒ_ƒ[ƒW
-
+            //íÔ‚ğ”j‰ó
+            Destroy(col.gameObject);
             Destroy(this.gameObject);
         }
         //’e‚É“–‚½‚Á‚½ê‡
