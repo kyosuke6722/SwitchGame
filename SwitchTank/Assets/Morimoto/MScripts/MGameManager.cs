@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class MGameManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class MGameManager : MonoBehaviour
     private GameObject m_player1 = null;
     [SerializeField]
     private GameObject m_player2 = null;
+    [SerializeField]
+    private GameObject m_player3 = null;
+    [SerializeField]
+    private GameObject m_player4 = null;
     [SerializeField]
     private Canvas m_canvaswin = null;
     [SerializeField]
@@ -24,7 +29,7 @@ public class MGameManager : MonoBehaviour
 
     private void Update()
     {
-        if(!m_isPrint && m_player1==null|| !m_isPrint && m_player2 == null)
+        if(!m_isPrint && m_player1==null|| !m_isPrint && m_player2 == null && !m_isPrint && m_player3 == null && !m_isPrint && m_player4 == null)
         {
             m_isPrint = true;
             On();
@@ -37,7 +42,7 @@ public class MGameManager : MonoBehaviour
         {
             m_canvaslose.gameObject.SetActive(true);
         }
-        else if(m_player2 == null)
+        else if(m_player2 == null&& m_player3 == null&& m_player4 == null)
         {
             m_canvaswin.gameObject.SetActive(true);
         }

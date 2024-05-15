@@ -18,6 +18,9 @@ public class MEnemyMove : MonoBehaviour
     private void Update()
     {
         //agent.SetDestination(m_player.transform.position);
-        agent.destination = m_player.transform.position;
+        if (m_player != null)
+        {
+            agent.destination = m_player.transform.position;
+        }
     }
 }

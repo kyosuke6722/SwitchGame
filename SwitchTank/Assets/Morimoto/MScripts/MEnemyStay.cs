@@ -13,6 +13,9 @@ public class MEnemyStay : MonoBehaviour
 
     private void Update()
     {
-        m_enemy.LookAt(m_player);
+        if (m_player != null)
+        {
+            m_enemy.LookAt(m_player);
+        }
     }
 }

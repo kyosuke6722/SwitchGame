@@ -8,14 +8,14 @@ public class GameOver : MonoBehaviour
 {
     private static GameOver ms_instance = null;
 
-    public static bool IsGameOver()
-    {
-        return ms_instance.gameObject.activeSelf;
-    }
-    public static void StartGameOver()
-    {
-        ms_instance.gameObject.SetActive(true);
-    }
+    //public static bool IsGameOver()
+    //{
+    //    //return ms_instance.gameObject.activeSelf;
+    //}
+    //public static void StartGameOver()
+    //{
+    //    //ms_instance.gameObject.SetActive(true);
+    //}
 
     private void Awake()
     {

@@ -9,10 +9,10 @@ public class owari : MonoBehaviour
     {
         if (collision.gameObject.tag == "jirai")
         {
-            GameOver.StartGameOver();
+            //GameOver.StartGameOver();
             //GameClear.StartGameClear();
             Destroy(gameObject, 0.2f);
-
+            Destroy(collision.gameObject, 0.2f);
             GameObject effect=Instantiate(effectPrefab,transform.position,Quaternion.identity);
 
             Destroy(effect,2.0f);

@@ -14,6 +14,9 @@ public class MBulletVS : MonoBehaviour
     [SerializeField]
     private int m_player = 1;
 
+    [SerializeField]
+    private GameObject m_effect;
+
     private int m_lifeTime = 0;
 
     private int m_Max_lifeTime = 400;
@@ -50,6 +53,7 @@ public class MBulletVS : MonoBehaviour
         if (m_Refcount == m_RefNumber||col.gameObject.tag=="Bullet")
         {
             Destroy(this.gameObject);
+            Instantiate(m_effect, transform.position, Quaternion.identity);
             switch (m_player)
             {
                 case 1:
@@ -65,11 +69,13 @@ public class MBulletVS : MonoBehaviour
         {
             Destroy(col.gameObject);
             Destroy(this.gameObject);
+            Instantiate(m_effect, transform.position, Quaternion.identity);
         }
         if (col.gameObject.tag == "Enemy")
         {
             Destroy(col.gameObject);
             Destroy(this.gameObject);
+            Instantiate(m_effect, transform.position, Quaternion.identity);
         }
 
         Vector3 m_refrectVec = Vector3.Reflect(this.m_lastVec, col.contacts[0].normal);
