@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameOver : MonoBehaviour
+public class GameOver2 : MonoBehaviour
 {
     private static GameOver ms_instance = null;
 
