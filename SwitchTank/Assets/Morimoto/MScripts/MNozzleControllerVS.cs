@@ -85,11 +85,11 @@ public class MNozzleControllerVS : MonoBehaviour
                 }
                 break;
             case 3:
-                if (m_time%60==0)//]
+                if (m_time%600==0)//]
                 {
-                    if (m_countVS > 0)
+                    if (m_count > 0)
                     {
-                        m_countVS--;
+                        m_count--;
                         Instantiate
                             (
                                 m_bullet,
