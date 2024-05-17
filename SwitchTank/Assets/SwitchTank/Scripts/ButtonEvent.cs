@@ -36,7 +36,7 @@ public class ButtonEvent : MonoBehaviour
                 SceneManager.LoadScene("NPCVS3");
                 break;
             case 4:
-                SceneManager.LoadScene("PlayerVS");
+                SceneManager.LoadScene("PVP");
                 break;
             case 5:
                 SceneManager.LoadScene("GameClear");
