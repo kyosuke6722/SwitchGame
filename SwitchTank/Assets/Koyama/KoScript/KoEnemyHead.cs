@@ -42,13 +42,7 @@ public class KoEnemyHead : MonoBehaviour
         //弾を撃った反動がなければ
         if (m_recoil<0)
         {
-            //プレイヤーまでのベクトルを算出
-            Vector3 lookAtPos = target.transform.position;
-            Vector3 forward = lookAtPos - transform.parent.position;
-            forward.y = 0;
-            forward.Normalize();
-            //Lerp関数で徐々にプレイヤーの方向に向く
-            transform.forward += forward * m_rotateSpeed * Time.deltaTime; ;
+            LockOn();
         }
 
         if (m_interval < 0)
@@ -68,5 +62,16 @@ public class KoEnemyHead : MonoBehaviour
             m_recoil = m_recoilTime;
             m_interval = m_intervalTime + Random.Range(-1.0f, 1.0f); ;
         }
+    }
+
+    public virtual void LockOn()
+    {
+        //プレイヤーまでのベクトルを算出
+        Vector3 lookAtPos = target.transform.position;
+        Vector3 forward = lookAtPos - transform.parent.position;
+        forward.y = 0;
+        forward.Normalize();
+        //Lerp関数で徐々にプレイヤーの方向に向く
+        transform.forward += forward * m_rotateSpeed * Time.deltaTime; ;
     }
 }
