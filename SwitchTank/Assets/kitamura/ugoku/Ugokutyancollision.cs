@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class collision : MonoBehaviour
+public class Ugokutyancollision : MonoBehaviour
 {
 
     public GameObject floor;
