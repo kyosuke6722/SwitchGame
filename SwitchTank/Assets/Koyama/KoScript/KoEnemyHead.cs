@@ -64,7 +64,7 @@ public class KoEnemyHead : MonoBehaviour
         }
     }
 
-    public virtual void LockOn()
+    public void LockOn()
     {
         //プレイヤーまでのベクトルを算出
         Vector3 lookAtPos = target.transform.position;

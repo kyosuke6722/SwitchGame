@@ -19,6 +19,8 @@ public class KoEnemyBody : MonoBehaviour
 
     private NavMeshAgent m_navMeshAgent = null;
 
+    public bool m_isVisibility;
+
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
