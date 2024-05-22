@@ -6,30 +6,20 @@ using UnityEngine.UI;
 
 public class GameOver2 : MonoBehaviour
 {
-    private static GameOver2 ms_instance = null;
+    private GameObject[] PlayerBox;
+    void Update()
+    {
+        PlayerBox = GameObject.FindGameObjectsWithTag("Player");
 
-    public static bool IsGameOver()
-    {
-        return ms_instance.gameObject.activeSelf;
-    }
-    public static void StartGameOver()
-    {
-        ms_instance.gameObject.SetActive(true);
-    }
+        print("ÉvÉåÉCÉÑÅ[:" + PlayerBox.Length);
 
-    private void Awake()
-    {
-        ms_instance = this;
-        gameObject.SetActive(false);
-    }
+        if (PlayerBox.Length == 0)
+        {
+            SceneManager.LoadScene("GameClear");
+            //Scene scene = SceneManager.GetActiveScene();
+            // StartGameClear();
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space)) {
-       // Scene scene=SceneManager.GetActiveScene();
-        //SceneManager.LoadScene(scene.name);
-       // StageSelectManager.StartStageSelectManager();
-        
         }
+
     }
 }

@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameClear : MonoBehaviour
 {
-    private static GameClear ms_instane = null;
+    //private static GameClear ms_instane = null;
     private GameObject[] enemyBox;
 
+   /* public static bool IsGameClear()
+    {
+        return ms_instane.gameObject.activeSelf;
+    }
     public static void StartGameClear()
     {
         ms_instane.gameObject.SetActive(true);
@@ -17,21 +21,19 @@ public class GameClear : MonoBehaviour
     {
         ms_instane = this;
         gameObject.SetActive(false);
-    }
+    }*/
     void Update()
     {
-        enemyBox = GameObject.FindGameObjectsWithTag("oni");
+        enemyBox = GameObject.FindGameObjectsWithTag("Enemy");
 
         print("ìGÇÃêî:"+enemyBox.Length);
 
         if(enemyBox.Length == 0 ) {
-            SceneManager.LoadScene("GameClear");
+             SceneManager.LoadScene("GameClear");
+            //Scene scene = SceneManager.GetActiveScene();
+           // StartGameClear();
+
         }
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            //Scene scene=SceneManager.GetActiveScene();
-            //SceneManager.LoadScene(scene.name);
-            StageManager.StartStageManager();
-        }
+
     }
 }
