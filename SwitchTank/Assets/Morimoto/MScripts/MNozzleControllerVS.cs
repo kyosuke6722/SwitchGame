@@ -21,9 +21,15 @@ public class MNozzleControllerVS : MonoBehaviour
 
     private int m_time = 0;
 
-    public static int m_count = 5;
+    public static int m_count = 0;
 
-    public static int m_countVS = 5;
+    public static int m_countVS = 0;
+
+    private void Start()
+    {
+        m_count = 5;
+        m_countVS = 5;
+    }
 
     private void Update()
     {
