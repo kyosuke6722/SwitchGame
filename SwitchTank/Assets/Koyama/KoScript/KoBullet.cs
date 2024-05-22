@@ -43,6 +43,7 @@ public class KoBullet : MonoBehaviour
 
         //”½ŽË
         Vector3 RefVelocity = Vector3.Reflect(m_lastVec, col.contacts[0].normal);
+        if (RefVelocity == Vector3.zero) Destroy(this.gameObject);
         m_rb.velocity = RefVelocity;
         transform.LookAt(transform.position + RefVelocity);
         m_bounce--;

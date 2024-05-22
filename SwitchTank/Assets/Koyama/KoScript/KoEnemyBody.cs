@@ -19,7 +19,11 @@ public class KoEnemyBody : MonoBehaviour
 
     private NavMeshAgent m_navMeshAgent = null;
 
-    public bool m_isVisibility;
+    //public bool m_isVisibility
+    //{
+    //    get;
+    //    private set;
+    //} = true;
 
     void Start()
     {
@@ -47,15 +51,27 @@ public class KoEnemyBody : MonoBehaviour
         RaycastHit hit;
         int layerMask = LayerMask.GetMask("Player");
 
-        //è·äQï®Ç™ñ≥ÇØÇÍÇŒ
-        if (!Physics.Raycast(ray, out hit, dis, ~layerMask)&& dis <= m_stopDistance)
+        //êiçsï˚å¸Ç…è·äQï®Ç™ñ≥Ç¢
+        if (!Physics.Raycast(ray, out hit, dis, ~layerMask))
         {
-            //É^Å[ÉQÉbÉgÇ∆ÇÃãóó£Ç™ãﬂÇ¢Ç∆Ç´
+            //É^Å[ÉQÉbÉgÇ‹Ç≈ÇÃãóó£Ç™ãﬂÇ¢Ç∆Ç´
+            if (dis <= m_stopDistance)
+            {
+                //í‚é~
                 m_navMeshAgent.speed = 0;
+            }
+            else
+            {
+                //í«ê’çƒäJ
+                m_navMeshAgent.speed = m_moveSpeed;
+            }
+            //éãäEÇé’ÇÈÇ‡ÇÃÇÕñ≥Ç¢
+            //m_isVisibility = true;
         }
         else
         {
             m_navMeshAgent.speed = m_moveSpeed;
+            //m_isVisibility = false;
         }
 
         Debug.DrawRay(this.transform.position, ray.direction*dis);

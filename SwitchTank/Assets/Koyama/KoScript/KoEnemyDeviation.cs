@@ -30,108 +30,55 @@ public class KoEnemyDeviation : MonoBehaviour
     private GameObject target;
 
     Vector3 targetPrePosition;
-    Vector3 targetPrePosition2;
 
-    public Vector3 LinePrediction(Vector3 shotPosition,Vector3 targetPosition,Vector3 targetPrePosition,float bulletSpeed)
+    private void Start()
+    {
+        m_interval = m_intervalTime + Random.Range(-1.0f, 1.0f);
+    }
+
+    public Vector3 LinePrediction(Vector3 shotPosition,Vector3 targtePosition,Vector3 targetPrePosition,float bulletSpeed)
     {
         bulletSpeed = bulletSpeed * Time.fixedDeltaTime;
-        //標的の1フレームの移動速度
-        Vector3 targetSpeed = targetPosition - targetPrePosition;
-        //射撃位置から見た標的の位置
-        Vector3 targetVec = targetPosition - shotPosition;
 
-        float A = Vector3.SqrMagnitude(targetSpeed) - bulletSpeed * bulletSpeed;
-        float B = Vector3.Dot(targetVec, targetSpeed);
-        float C = Vector3.SqrMagnitude(targetVec);
+        //ターゲットの移動方向
+        Vector3 targetMove = targtePosition - targetPrePosition;
+        //ターゲットの移動量
+        float targetSpeed = (targtePosition - targetPrePosition).magnitude;
 
-        //0割禁止
-        if (A == 0 && B == 0) return targetPosition;
-        if (A == 0) return targetPosition + targetSpeed * (-C / B / 2);
+        //射撃位置からターゲットの現在位置までのベクトル
+        Vector3 vec = targtePosition - shotPosition;
 
-        float D = Mathf.Sqrt(Mathf.Abs(B * B - A * C));
-        return targetPosition + targetSpeed * PlusMin((-B-D)/A,(-B+D)/A);
-    }
-
-    public float PlusMin(float a, float b)
-    {
-        if (a < 0 && b < 0) return 0;
-        if (a < 0) return b;
-        if (b < 0) return a;
-        return a < b ? a : b;
-    }
-
-    public Vector3 CirclePrediction(Vector3 shotPosition,Vector3 targetPosition,Vector3 targetPrePosition,Vector3 targetPrePosition2,float bulletSpeed)
-    {
-        //3点の角度変化が小さい場合は線形予測に切り替え
-        if(Mathf.Abs(Vector3.Angle(targetPosition-targetPrePosition,targetPrePosition-targetPrePosition2))<0.03)
+        float frame=0.0f;
+        //ターゲットが動き続けると仮定して現在の位置と1フレーム毎の移動量から弾がターゲットに追いつくまでの時間を算出
+        if(targetSpeed!=bulletSpeed)
         {
-            return LinePrediction(shotPosition, targetPosition, targetPosition,bulletSpeed);
+            frame =Mathf.Abs((vec.magnitude) / (targetSpeed - bulletSpeed));
         }
 
-        //Unityの物理はm/sなのでm/flameにする
-        bulletSpeed = bulletSpeed * Time.fixedDeltaTime;
+        Vector3 predictionPos = vec + targetMove * frame;
 
-        //3点から円の中心点(三角形の外心)を出す
-        Vector3 CenterPosition = Circumcenter(targetPosition, targetPrePosition, targetPrePosition2);
-
-        //中心点から見た1フレームの角速度と軸を出す
-        Vector3 axis = Vector3.Cross(targetPrePosition - CenterPosition, targetPosition - CenterPosition);
-        float angle = Vector3.Angle(targetPrePosition - CenterPosition, targetPosition - CenterPosition);
-
-        //現在位置での弾の到達時間を出す
-        float PredictionFlame = Vector3.Distance(targetPosition, shotPosition) / bulletSpeed;
-    
-        //到達時間分を移動した予測位置で再計算して到達時間を補正する
-        for(int i=0;i<3;++i)
-        {
-            PredictionFlame = Vector3.Distance(RotateToPosition(targetPosition, CenterPosition, axis, angle * PredictionFlame), shotPosition/bulletSpeed);
-        }
-        return RotateToPosition(targetPosition, CenterPosition, axis, angle * PredictionFlame);
+        return predictionPos;
     }
 
-    //三角形の頂点、三点の位置から外心の位置を返す
-    public Vector3 Circumcenter(Vector3 posA,Vector3 posB,Vector3 posC)
-    {
-        //三辺の長さの二乗を出す
-        float edgeA = Vector3.SqrMagnitude(posB - posC);
-        float edgeB = Vector3.SqrMagnitude(posC - posA);
-        float edgeC = Vector3.SqrMagnitude(posA - posB);
-
-        //重心座標系で計算する
-        float a = edgeA * (-edgeA + edgeB + edgeC);
-        float b = edgeB * (edgeA - edgeB + edgeC);
-        float c = edgeC * (edgeA + edgeB - edgeC);
-
-        if (a + b + c == 0) return (posA + posB + posC) / 3;
-        return (posA * a + posB * b + posC * c) / (a + b + c);
-    }
-
-    //目標位置をセンター位置で軸と角度で回転させた位置を返す
-    public Vector3 RotateToPosition(Vector3 v3_target,Vector3 v3_center,Vector3 v3_axis,float f_angle)
-    {
-        return Quaternion.AngleAxis(f_angle, v3_axis) * (v3_target - v3_center) + v3_center;
-    }
-
-    private void Update()
+    private void FixedUpdate()
     {
         m_recoil -= Time.deltaTime;
         m_interval -= Time.deltaTime;
 
-        Vector3 targetPosition;
+        Vector3 targetPosition=target.transform.position;
 
         ////弾を撃った反動がなければ
-        //if (m_recoil < 0)
+        if (m_recoil < 0)
         {
-            targetPosition = CirclePrediction(transform.position, target.transform.position, targetPrePosition, targetPrePosition2, m_pow);
-            targetPrePosition2 = targetPrePosition;
+            targetPosition = LinePrediction(transform.position, target.transform.position, targetPrePosition, m_pow);
+            Debug.Log(targetPosition);
             targetPrePosition = target.transform.position;
 
             //プレイヤーまでのベクトルを算出
             Vector3 forward = targetPosition - transform.parent.position;
-            forward.y = 0;
-            //forward.Normalize();
+            //forward.y = 0;
             //Lerp関数で徐々に予測位置の方向に向く
-            transform.forward += forward * Time.deltaTime; //* m_rotateSpeed * Time.deltaTime;
+            transform.forward += forward * m_rotateSpeed * Time.deltaTime;
         }
 
         if (m_interval < 0)
