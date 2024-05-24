@@ -5,12 +5,15 @@ using UnityEngine;
 public class owari : MonoBehaviour
 {
     public GameObject effectPrefab;
+   // public GameObject GameManager;
+    
+   // private PlayerCount PlayerCount;
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "jirai")
         {
             //GameOver.StartGameOver();
-            //GameClear.StartGameClear();
+            //PlayerCount.StageClear();
             Destroy(gameObject, 0.2f);
             Destroy(collision.gameObject, 0.2f);
             GameObject effect=Instantiate(effectPrefab,transform.position,Quaternion.identity);

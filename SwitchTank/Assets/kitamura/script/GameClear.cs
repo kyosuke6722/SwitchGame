@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameClear : MonoBehaviour
 {
-    //private static GameClear ms_instane = null;
+    private static GameClear ms_instane = null;
     private GameObject[] enemyBox;
 
    /* public static bool IsGameClear()
@@ -29,9 +30,9 @@ public class GameClear : MonoBehaviour
         print("ìGÇÃêî:"+enemyBox.Length);
 
         if(enemyBox.Length == 0 ) {
-             SceneManager.LoadScene("GameClear");
+            SceneManager.LoadScene("GameClear");
             //Scene scene = SceneManager.GetActiveScene();
-           // StartGameClear();
+            //StartGameClear();
 
         }
 
