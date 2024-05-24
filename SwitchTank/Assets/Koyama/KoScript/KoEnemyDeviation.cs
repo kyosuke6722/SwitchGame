@@ -15,7 +15,7 @@ public class KoEnemyDeviation : MonoBehaviour
     private Transform m_cannonTips = null;
     //弾の発射速度
     [SerializeField]
-    private float m_pow = 3.0f;
+    private float m_bulletSpeed = 3.0f;
     //反動
     [SerializeField]
     private float m_recoilTime = 1.0f;
@@ -36,17 +36,17 @@ public class KoEnemyDeviation : MonoBehaviour
         m_interval = m_intervalTime + Random.Range(-1.0f, 1.0f);
     }
 
-    public Vector3 LinePrediction(Vector3 shotPosition,Vector3 targtePosition,Vector3 targetPrePosition,float bulletSpeed)
+    public Vector3 LinePrediction(Vector3 shotPosition,Vector3 targetPosition,Vector3 targetPrePosition,float bulletSpeed)
     {
         bulletSpeed = bulletSpeed * Time.fixedDeltaTime;
 
         //ターゲットの移動方向
-        Vector3 targetMove = targtePosition - targetPrePosition;
+        Vector3 targetMove = targetPosition - targetPrePosition;
         //ターゲットの移動量
-        float targetSpeed = (targtePosition - targetPrePosition).magnitude;
+        float targetSpeed = (targetPosition - targetPrePosition).magnitude;
 
         //射撃位置からターゲットの現在位置までのベクトル
-        Vector3 vec = targtePosition - shotPosition;
+        Vector3 vec = targetPosition - shotPosition;
 
         float frame=0.0f;
         //ターゲットが動き続けると仮定して現在の位置と1フレーム毎の移動量から弾がターゲットに追いつくまでの時間を算出
@@ -55,7 +55,7 @@ public class KoEnemyDeviation : MonoBehaviour
             frame =Mathf.Abs((vec.magnitude) / (targetSpeed - bulletSpeed));
         }
 
-        Vector3 predictionPos = vec + targetMove * frame;
+        Vector3 predictionPos = shotPosition+vec + targetMove * frame;
 
         return predictionPos;
     }
@@ -70,8 +70,7 @@ public class KoEnemyDeviation : MonoBehaviour
         ////弾を撃った反動がなければ
         if (m_recoil < 0)
         {
-            targetPosition = LinePrediction(transform.position, target.transform.position, targetPrePosition, m_pow);
-            Debug.Log(targetPosition);
+            targetPosition = LinePrediction(transform.position, target.transform.position, targetPrePosition, m_bulletSpeed);
             targetPrePosition = target.transform.position;
 
             //プレイヤーまでのベクトルを算出
@@ -93,7 +92,7 @@ public class KoEnemyDeviation : MonoBehaviour
             if (bulletrb != null)
             {
                 //弾発射
-                bulletrb.AddForce((targetPosition-transform.position).normalized*m_pow,ForceMode.VelocityChange);
+                bulletrb.AddForce((targetPosition-transform.position).normalized*m_bulletSpeed,ForceMode.VelocityChange);
             }
             m_recoil = m_recoilTime;
             m_interval = m_intervalTime + Random.Range(-1.0f, 1.0f); ;

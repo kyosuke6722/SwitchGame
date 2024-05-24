@@ -15,7 +15,7 @@ public class KoEnemyHead : MonoBehaviour
     private Transform m_cannonTips=null;
     //’e‚Ì”­ŽË‘¬“x
     [SerializeField]
-    private float m_pow = 3.0f;
+    private float m_bulletSpeed = 3.0f;
     //”½“®
     [SerializeField]
     private float m_recoilTime=1.0f;
@@ -57,7 +57,7 @@ public class KoEnemyHead : MonoBehaviour
             if (bulletrb != null)
             {
                 //’e”­ŽË
-                bulletrb.AddForce(transform.forward*m_pow, ForceMode.Impulse);
+                bulletrb.AddForce(transform.forward*m_bulletSpeed, ForceMode.Impulse);
             }
             m_recoil = m_recoilTime;
             m_interval = m_intervalTime + Random.Range(-1.0f, 1.0f); ;
