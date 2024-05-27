@@ -9,7 +9,7 @@ public class GameOver2 : MonoBehaviour
     
     private static GameOver2 ms_instance = null;
 
-   /* public static bool IsGameOver()
+    /*public static bool IsGameOver()
    {
         return ms_instance.gameObject.activeSelf;
     }
@@ -33,8 +33,8 @@ public class GameOver2 : MonoBehaviour
         if (PlayerBox.Length == 0)
         {
             SceneManager.LoadScene("GameOver");
-            //Scene scene = SceneManager.GetActiveScene();
-            // StartGameClear();
+           // Scene scene = SceneManager.GetActiveScene();
+            // StartGameOver();
 
         }
 
