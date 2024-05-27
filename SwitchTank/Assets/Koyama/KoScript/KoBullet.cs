@@ -25,10 +25,19 @@ public class KoBullet : MonoBehaviour
     private void OnCollisionEnter(Collision col)
     {
         string tag = col.gameObject.tag;
-        //戦車に当たった場合
-        if (tag == "Player" || tag == "Enemy")
+        //プレイヤーに当たった場合
+        if (tag == "Player")
         {
             //戦車を破壊
+            Destroy(col.gameObject);
+            Destroy(this.gameObject);
+
+            //残機をひとつ減らす
+            //KoGameManager.ms_instance.m_remaining--;
+        }
+        //敵に当たった場合
+        if(tag=="Enemy")
+        {
             Destroy(col.gameObject);
             Destroy(this.gameObject);
         }

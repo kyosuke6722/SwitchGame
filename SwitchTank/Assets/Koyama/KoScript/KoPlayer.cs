@@ -99,4 +99,9 @@ public class KoPlayer : MonoBehaviour
         //Œ»İ‚ÌˆÚ“®—Ê‚Æ‚Ì·•ª‚¾‚¯ƒvƒŒƒCƒ„[‚É—Í‚ğ‰Á‚¦‚é
         m_rigidbody.AddForce(move - current, ForceMode.VelocityChange);
     }
+
+    private void OnDestroy()
+    {
+        KoGameOver.StartGameOver();
+    }
 }
