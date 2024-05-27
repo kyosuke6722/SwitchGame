@@ -44,6 +44,9 @@ public class ButtonEvent : MonoBehaviour
             case 6:
                 SceneManager.LoadScene("GameOver");
                 break;
+            case 7:
+                SceneManager.LoadScene("PVP2");
+                break;
         }
         
     }
