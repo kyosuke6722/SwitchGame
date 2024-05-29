@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class KoGameOver : MonoBehaviour
 {
-    //[SerializeField]
-    //private GameObject m_player;
-
     private static KoGameOver ms_instance = null;
+
     //残機
-    public int m_remaining;
+    public const int DefaultLife=3;
+    private static int m_life=DefaultLife;
+
+    [SerializeField]
+    private KoLifePanel m_lifePanel;
+
+    public static int GetLife()
+    {
+        return m_life;
+    }
+
+    public static void SetLife(int life)
+    {
+        m_life = life;
+    }
 
     public static void StartGameOver()
     {
+        m_life--;
         ms_instance.gameObject.SetActive(true);
     }
 
@@ -22,7 +35,7 @@ public class KoGameOver : MonoBehaviour
         {
             ms_instance = this;
             DontDestroyOnLoad(gameObject);
-            gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
         }
         else
         {
@@ -32,11 +45,6 @@ public class KoGameOver : MonoBehaviour
 
     public void Update()
     {
-        ////プレイヤーがいなくなったとき
-        //if(!m_player)
-        //{
-        //    //ゲームオーバー
-        //    //Invoke("GameOver", 2.0f);
-        //}
+        m_lifePanel.UpdateLife(m_life);
     }
 }

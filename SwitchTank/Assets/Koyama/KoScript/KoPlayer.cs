@@ -67,7 +67,7 @@ public class KoPlayer : MonoBehaviour
             }
 
         //’e‚ð”­ŽË
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.Return))
         {
             if (m_interval < 0)
             {
