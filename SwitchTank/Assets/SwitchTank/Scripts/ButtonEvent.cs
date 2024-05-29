@@ -47,6 +47,9 @@ public class ButtonEvent : MonoBehaviour
             case 7:
                 SceneManager.LoadScene("PVP2");
                 break;
+            case 8:
+                SceneManager.LoadScene("PVP3");
+                break;
         }
         
     }
