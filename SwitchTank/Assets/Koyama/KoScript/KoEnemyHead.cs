@@ -66,6 +66,7 @@ public class KoEnemyHead : MonoBehaviour
 
     public void LockOn()
     {
+        if (target == null) return;
         //プレイヤーまでのベクトルを算出
         Vector3 lookAtPos = target.transform.position;
         Vector3 forward = lookAtPos - transform.parent.position;

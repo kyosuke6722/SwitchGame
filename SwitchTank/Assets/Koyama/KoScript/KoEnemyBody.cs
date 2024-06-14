@@ -19,12 +19,6 @@ public class KoEnemyBody : MonoBehaviour
 
     private NavMeshAgent m_navMeshAgent = null;
 
-    //public bool m_isVisibility
-    //{
-    //    get;
-    //    private set;
-    //} = true;
-
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
@@ -35,8 +29,11 @@ public class KoEnemyBody : MonoBehaviour
             //Agentの移動速度を設定
             m_navMeshAgent.speed = m_moveSpeed;
 
-            //最初の目標地点を設定
-            m_navMeshAgent.SetDestination(target.position);
+            if(target!=null)
+            {
+                //最初の目標地点を設定
+                m_navMeshAgent.SetDestination(target.position);
+            }
         }
     }
 

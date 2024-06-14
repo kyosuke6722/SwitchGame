@@ -62,6 +62,8 @@ public class KoEnemyDeviation : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (target == null) return;
+
         m_recoil -= Time.deltaTime;
         m_interval -= Time.deltaTime;
 
