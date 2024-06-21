@@ -100,7 +100,7 @@ public class KoEnemyDeviation : MonoBehaviour
                 bulletrb.AddForce((targetPosition-transform.position).normalized*m_bulletSpeed,ForceMode.VelocityChange);
             }
             m_recoil = m_recoilTime;
-            m_interval = m_intervalTime + Random.Range(-1.0f, 1.0f); ;
+            m_interval = m_intervalTime + Random.Range(-1.0f, 1.0f);
         }
     }
 
@@ -108,7 +108,7 @@ public class KoEnemyDeviation : MonoBehaviour
     {
         if (enemyManager != null)
         {
-            enemyManager.RemoveEnemy(this.gameObject);
+            enemyManager.RemoveEnemy(gameObject);
         }
     }
 }
