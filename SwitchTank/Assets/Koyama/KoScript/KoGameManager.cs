@@ -4,6 +4,24 @@ using UnityEngine;
 
 public class KoGameManager : MonoBehaviour
 {
+    private static KoGameManager ms_instance=null;
+
+    public static KoGameManager instance { get { return ms_instance; } }
+
+    //Žc‹@
+    public const int DefaultLife = 3;
+    private static int m_life = DefaultLife;
+
+    public int GetLife()
+    {
+        return m_life;
+    }
+
+    public void SetLife(int life)
+    {
+        m_life = life;
+    }
+
     public enum GameState
     {
         State_Game,
@@ -11,30 +29,29 @@ public class KoGameManager : MonoBehaviour
         State_GameOver
     }
 
-    private GameState m_state = GameState.State_Game;
+    private static GameState m_state;
 
-    private GameObject m_player;
-    private GameObject[] m_enemies;
-
-    private void Start()
+    public GameState GetGameState()
     {
-        m_player = GameObject.FindGameObjectWithTag("Player");
-        m_enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        return m_state;
     }
 
-    private void Update()
+    public void SetGameState(GameState gameState)
     {
-        if (m_state != GameState.State_Game) return;
+        m_state = gameState;
+    }
 
-        if (!m_player)
+    private void Awake()
+    {
+        SetGameState(GameState.State_Game);
+        if (ms_instance == null)
         {
-            KoGameOver.StartGameOver();
-            m_state = GameState.State_GameOver;
+            ms_instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        else if(m_enemies.Length<=0)
+        else
         {
-            KoGameClear.StartGameClear();
-            m_state = GameState.State_GameClear;
+            Destroy(gameObject);
         }
     }
 }

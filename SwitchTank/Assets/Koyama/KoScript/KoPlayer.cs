@@ -133,15 +133,15 @@ public class KoPlayer : MonoBehaviour
 
     private void Update()
     {
-        PadCheck();
+        //PadCheck();
 
         m_interval-=Time.deltaTime;
 
         //à⁄ìÆÉLÅ[ì¸óÕéÊìæ
-        //m_horizontalKeyInput = Input.GetAxis("Horizontal");
-        m_horizontalKeyInput = SGGamePad.L_Analog_X;
-        //m_verticalKeyInput = Input.GetAxis("Vertical");
-        m_verticalKeyInput = SGGamePad.L_Analog_Y;
+        m_horizontalKeyInput = Input.GetAxis("Horizontal");
+        //m_horizontalKeyInput = SGGamePad.L_Analog_X;
+        m_verticalKeyInput = Input.GetAxis("Vertical");
+        //m_verticalKeyInput = SGGamePad.L_Analog_Y;
 
         NpadButton onButtons = 0;
         if((onButtons&(NpadButton.Plus|NpadButton.Minus))!=0)
@@ -194,7 +194,8 @@ public class KoPlayer : MonoBehaviour
 
     private void OnDestroy()
     {
-        //KoGameOver.StartGameOver();
+        if(KoGameManager.instance.GetGameState()==KoGameManager.GameState.State_Game)
+            KoGameOver.instance.StartGameOver();
     }
 
     void PadCheck()

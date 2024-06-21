@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class KoEnemyDeviation : MonoBehaviour
 {
+    private KoEnemyManager enemyManager;
+
     //ヘッドの回転速度
     [SerializeField]
     private float m_rotateSpeed = 30.0f;
@@ -33,6 +35,8 @@ public class KoEnemyDeviation : MonoBehaviour
 
     private void Start()
     {
+        enemyManager = FindAnyObjectByType<KoEnemyManager>();
+        enemyManager.AddEnemy(gameObject);
         m_interval = m_intervalTime + Random.Range(-1.0f, 1.0f);
     }
 
@@ -77,7 +81,6 @@ public class KoEnemyDeviation : MonoBehaviour
 
             //プレイヤーまでのベクトルを算出
             Vector3 forward = targetPosition - transform.parent.position;
-            //forward.y = 0;
             //Lerp関数で徐々に予測位置の方向に向く
             transform.forward += forward * m_rotateSpeed * Time.deltaTime;
         }
@@ -98,6 +101,14 @@ public class KoEnemyDeviation : MonoBehaviour
             }
             m_recoil = m_recoilTime;
             m_interval = m_intervalTime + Random.Range(-1.0f, 1.0f); ;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (enemyManager != null)
+        {
+            enemyManager.RemoveEnemy(this.gameObject);
         }
     }
 }

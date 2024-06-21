@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class KoEnemyHead : MonoBehaviour
 {
+    private KoEnemyManager enemyManager;
+
     //ヘッドの回転速度
     [SerializeField]
     private float m_rotateSpeed = 30.0f;
@@ -31,6 +33,8 @@ public class KoEnemyHead : MonoBehaviour
 
     private void Start()
     {
+        enemyManager = FindAnyObjectByType<KoEnemyManager>();
+        enemyManager.AddEnemy(gameObject);
         m_interval = m_intervalTime+Random.Range(-1.0f,1.0f);
     }
 
@@ -74,5 +78,14 @@ public class KoEnemyHead : MonoBehaviour
         forward.Normalize();
         //Lerp関数で徐々にプレイヤーの方向に向く
         transform.forward += forward * m_rotateSpeed * Time.deltaTime; ;
+    }
+
+    private void OnDestroy()
+    {
+        if (enemyManager != null)
+        {
+            enemyManager.RemoveEnemy(gameObject);
+        }
+
     }
 }

@@ -1,32 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class KoGameOver : MonoBehaviour
 {
+    [SerializeField]
+    Button retry_button;
+    [SerializeField]
+    EventSystem event_system;
+
     private static KoGameOver ms_instance = null;
 
-    //Žc‹@
-    public const int DefaultLife=3;
-    private static int m_life=DefaultLife;
+    public static KoGameOver instance { get { return ms_instance; } }
 
     [SerializeField]
     private KoLifePanel m_lifePanel;
 
-    public static int GetLife()
+    public void StartGameOver()
     {
-        return m_life;
-    }
-
-    public static void SetLife(int life)
-    {
-        m_life = life;
-    }
-
-    public static void StartGameOver()
-    {
-        m_life--;
         ms_instance.gameObject.SetActive(true);
+        event_system.SetSelectedGameObject(retry_button.gameObject);
+        KoGameManager.instance.SetGameState(KoGameManager.GameState.State_GameOver);
+        KoGameManager.instance.SetLife(KoGameManager.instance.GetLife()-1);
     }
 
     private void Awake()
@@ -34,7 +31,6 @@ public class KoGameOver : MonoBehaviour
         if (ms_instance == null)
         {
             ms_instance = this;
-            DontDestroyOnLoad(gameObject);
             this.gameObject.SetActive(false);
         }
         else
@@ -45,6 +41,6 @@ public class KoGameOver : MonoBehaviour
 
     public void Update()
     {
-        m_lifePanel.UpdateLife(m_life);
+        m_lifePanel.UpdateLife(KoGameManager.instance.GetLife());
     }
 }

@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class KoButtonTitle : MonoBehaviour
 {
-    public void OnClickEnter()
+    public void OnClickEnter(string titleName)
     {
-        KoGameOver.SetLife(KoGameOver.DefaultLife);
-        SceneManager.LoadScene("KoTitle");
+        KoGameManager.instance.SetLife(KoGameManager.DefaultLife);
+        SceneManager.LoadScene(titleName);
     }
 }

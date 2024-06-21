@@ -14,7 +14,7 @@ public class KoButtonRetry : MonoBehaviour
 
     Button m_button;
 
-    private void Start()
+    private void Awake()
     {
         m_button = gameObject.GetComponent<Button>();
     }
@@ -22,7 +22,7 @@ public class KoButtonRetry : MonoBehaviour
     private void Update()
     {
         //残機が無ければボタンを押せなくする
-        if(KoGameOver.GetLife()<=0)
+        if(KoGameManager.instance.GetLife()<=0)
         {
             m_button.interactable = false;
             event_system.SetSelectedGameObject(title_button.gameObject);
