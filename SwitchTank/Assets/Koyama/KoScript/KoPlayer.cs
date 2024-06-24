@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using nn.hid;
 using UnityEngine.Assertions.Must;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KoPlayer : MonoBehaviour
 {
+    [SerializeField]
+    private string gameover_scene;
+
     //弾のプレハブ
     [SerializeField]
     private GameObject m_bulletPrefab = null;
@@ -133,15 +137,15 @@ public class KoPlayer : MonoBehaviour
 
     private void Update()
     {
-        //PadCheck();
+        PadCheck();
 
-        m_interval-=Time.deltaTime;
+        m_interval -=Time.deltaTime;
 
         //移動キー入力取得
-        m_horizontalKeyInput = Input.GetAxis("Horizontal");
-        //m_horizontalKeyInput = SGGamePad.L_Analog_X;
-        m_verticalKeyInput = Input.GetAxis("Vertical");
-        //m_verticalKeyInput = SGGamePad.L_Analog_Y;
+        //m_horizontalKeyInput = Input.GetAxis("Horizontal");
+        m_horizontalKeyInput = SGGamePad.L_Analog_X;
+        //m_verticalKeyInput = Input.GetAxis("Vertical");
+        m_verticalKeyInput = SGGamePad.L_Analog_Y;
 
         NpadButton onButtons = 0;
         if((onButtons&(NpadButton.Plus|NpadButton.Minus))!=0)
@@ -196,6 +200,7 @@ public class KoPlayer : MonoBehaviour
     {
         if(KoGameManager.instance.GetGameState()==KoGameManager.GameState.State_Game)
             KoGameOver.instance.StartGameOver();
+            //SceneManager.LoadScene(gameover_scene);
     }
 
     void PadCheck()
