@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class owari : MonoBehaviour
 {
-    public GameObject effectPrefab;
+    public GameObject JiraiEffectPrefab;
+    public GameObject BulletEffectPrefab;
     public AudioClip se;
     // public GameObject GameManager;
 
@@ -18,9 +19,17 @@ public class owari : MonoBehaviour
             Destroy(gameObject, 0.2f);
             Destroy(collision.gameObject, 0.2f);
             //AudioSource.PlayClipAtPoint(se, transform.position);
-            GameObject effect=Instantiate(effectPrefab,transform.position,Quaternion.identity);
+            GameObject effect=Instantiate(JiraiEffectPrefab,transform.position,Quaternion.identity);
 
             Destroy(effect,2.0f);
+
+        }
+        if (collision.gameObject.tag == "Bullet")
+        {
+            
+            GameObject effect = Instantiate(BulletEffectPrefab, transform.position, Quaternion.identity);
+
+            Destroy(effect, 2.0f);
 
         }
     }

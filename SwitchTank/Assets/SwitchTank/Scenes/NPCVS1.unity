@@ -3886,6 +3886,7 @@ GameObject:
   - component: {fileID: 8968365660619460168}
   - component: {fileID: 2972717018779346889}
   - component: {fileID: 7695653949310995161}
+  - component: {fileID: 8968365660619460169}
   m_Layer: 0
   m_Name: Player_test
   m_TagString: Player
@@ -4415,6 +4416,7 @@ GameObject:
   - component: {fileID: 8743559790630730674}
   - component: {fileID: 886776797093453085}
   - component: {fileID: 5209021969518584668}
+  - component: {fileID: 8743559790630730675}
   m_Layer: 0
   m_Name: Enemy_test_Green
   m_TagString: Enemy
@@ -7929,6 +7931,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4365517594238447407}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &8743559790630730675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4365517594238447407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9d3f7682e693243bb9e4a20c9155c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JiraiEffectPrefab: {fileID: 100000, guid: 5d028565f79e270408884b995abc06ef, type: 3}
+  BulletEffectPrefab: {fileID: 100000, guid: 5d028565f79e270408884b995abc06ef, type: 3}
+  se: {fileID: 8300000, guid: e38d15acc459da849a63c0deaa71fd1d, type: 3}
 --- !u!1 &8774804619201563928
 GameObject:
   m_ObjectHideFlags: 0
@@ -8109,6 +8126,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8968365660619460169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617575772941219759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9d3f7682e693243bb9e4a20c9155c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JiraiEffectPrefab: {fileID: 100000, guid: 5d028565f79e270408884b995abc06ef, type: 3}
+  BulletEffectPrefab: {fileID: 100000, guid: 5d028565f79e270408884b995abc06ef, type: 3}
+  se: {fileID: 8300000, guid: e38d15acc459da849a63c0deaa71fd1d, type: 3}
 --- !u!136 &8992400473628823911
 CapsuleCollider:
   m_ObjectHideFlags: 0
