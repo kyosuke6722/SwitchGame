@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3617575773946228659}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 0.5, z: 1.5}
   m_ConstrainProportionsScale: 0
@@ -130,7 +130,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
@@ -147,10 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852ebd4a949fb0d4cba527ef270ea3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletPrefab: {fileID: 3657363414213014454, guid: 679ede8fd9e2ac94a938733b93979bec, type: 3}
-  m_cannonTips: {fileID: 5527770949340320886}
-  m_pow: 5
-  m_intervalTime: 1
   m_moveSpeed: 3
 --- !u!1 &4528174331226439836
 GameObject:
@@ -270,6 +266,7 @@ GameObject:
   - component: {fileID: 7579865608538282095}
   - component: {fileID: 6126512951581705361}
   - component: {fileID: 4555361478867652104}
+  - component: {fileID: 5692100040832887711}
   m_Layer: 6
   m_Name: Head
   m_TagString: Player
@@ -391,6 +388,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 62
   m_CollisionDetection: 0
+--- !u!114 &5692100040832887711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4573006813882078683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b469614f7b3d53a488b6f109dff0437c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_player: {fileID: 7695653948306510533}
+  m_rotateSpeed: 120
+  m_bulletPrefab: {fileID: 3657363414213014454, guid: 679ede8fd9e2ac94a938733b93979bec, type: 3}
+  m_pow: 5
+  m_cannonTips: {fileID: 5527770949340320886}
+  m_intervalTime: 1
 --- !u!1 &5468005750043293859
 GameObject:
   m_ObjectHideFlags: 0

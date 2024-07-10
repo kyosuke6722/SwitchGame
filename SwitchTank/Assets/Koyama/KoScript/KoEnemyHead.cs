@@ -76,7 +76,7 @@ public class KoEnemyHead : MonoBehaviour
         Vector3 forward = lookAtPos - transform.parent.position;
         forward.y = 0;
         forward.Normalize();
-        //Lerp関数で徐々にプレイヤーの方向に向く
+        //徐々にプレイヤーの方向に向く
         transform.forward += forward * m_rotateSpeed * Time.deltaTime;
     }
 
@@ -86,5 +86,7 @@ public class KoEnemyHead : MonoBehaviour
         {
             enemyManager.RemoveEnemy(gameObject);
         }
+        GameObject body = transform.parent.gameObject;
+        Destroy(body);
     }
 }

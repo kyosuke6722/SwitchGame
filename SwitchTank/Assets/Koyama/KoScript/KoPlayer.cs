@@ -1,29 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using nn.hid;
-using UnityEngine.Assertions.Must;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class KoPlayer : MonoBehaviour
 {
-    [SerializeField]
-    private string gameover_scene;
-
-    //弾のプレハブ
-    [SerializeField]
-    private GameObject m_bulletPrefab = null;
-    //弾の発射位置
-    [SerializeField]
-    private Transform m_cannonTips = null;
-    //弾の発射速度
-    [SerializeField]
-    private float m_pow = 3.0f;
-    //リロード時間
-    [SerializeField]
-    private float m_intervalTime = 5.0f;
-    private float m_interval=0.0f;
-
     //移動速度
     [SerializeField]
     private float m_moveSpeed = 3.0f;
@@ -137,50 +118,29 @@ public class KoPlayer : MonoBehaviour
 
     private void Update()
     {
-        PadCheck();
-
-        m_interval -=Time.deltaTime;
+        //PadCheck();
 
         //移動キー入力取得
-        //m_horizontalKeyInput = Input.GetAxis("Horizontal");
-        m_horizontalKeyInput = SGGamePad.L_Analog_X;
-        //m_verticalKeyInput = Input.GetAxis("Vertical");
-        m_verticalKeyInput = SGGamePad.L_Analog_Y;
+        m_horizontalKeyInput = Input.GetAxis("Horizontal");
+        //m_horizontalKeyInput = SGGamePad.L_Analog_X;
+        m_verticalKeyInput = Input.GetAxis("Vertical");
+        //m_verticalKeyInput = SGGamePad.L_Analog_Y;
 
         NpadButton onButtons = 0;
-        if((onButtons&(NpadButton.Plus|NpadButton.Minus))!=0)
+        if ((onButtons & (NpadButton.Plus | NpadButton.Minus)) != 0)
         {
             ShowControllerSupport();
         }
 
-        //移動キーが入力されているか
-        bool isKeyInput = m_horizontalKeyInput != 0f || m_verticalKeyInput != 0f;
-            if (isKeyInput)
-            {
-                //プレイヤーを移動方向に向ける
-                Vector3 moveDir = CalcMoveDir(m_horizontalKeyInput, m_verticalKeyInput);
-                transform.forward = moveDir.normalized;
-            }
-
-        //弾を発射
-        if(Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.Return)||SGGamePad.Y)
+        //横移動
+        if(m_horizontalKeyInput!=0f)
         {
-            if (m_interval < 0)
-            {
-                GameObject BulletObj = Instantiate
-                    (m_bulletPrefab,
-                    m_cannonTips.position,
-                    this.transform.rotation);
-
-                //弾のRigidbodyを取得
-                Rigidbody bulletrb = BulletObj.GetComponent<Rigidbody>();
-                if (bulletrb != null)
-                {
-                    //弾発射
-                    bulletrb.AddForce(transform.forward * m_pow, ForceMode.Impulse);
-                }
-                m_interval = m_intervalTime;
-            }
+            m_rigidbody.velocity += new Vector3(m_horizontalKeyInput * m_moveSpeed,0,0);
+        }
+        //縦移動
+        if(m_verticalKeyInput!=0f)
+        {
+            m_rigidbody.velocity += new Vector3(0, 0, m_verticalKeyInput * m_moveSpeed);
         }
     }
 

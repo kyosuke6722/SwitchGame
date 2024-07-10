@@ -110,5 +110,8 @@ public class KoEnemyDeviation : MonoBehaviour
         {
             enemyManager.RemoveEnemy(gameObject);
         }
+
+        GameObject body = transform.parent.gameObject;
+        Destroy(body);
     }
 }

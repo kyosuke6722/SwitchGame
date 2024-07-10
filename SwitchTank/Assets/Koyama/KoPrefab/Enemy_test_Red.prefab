@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2874489660178737961}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_rotateSpeed: 30
   m_bulletPrefab: {fileID: 3657363414213014454, guid: 679ede8fd9e2ac94a938733b93979bec, type: 3}
   m_cannonTips: {fileID: 1769888289043639850}
-  m_pow: 3
+  m_bulletSpeed: 3
   m_recoilTime: 1
   m_intervalTime: 5
   target: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 1695133928544219941}
   m_Layer: 0
   m_Name: Cannon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 7560501937886627864}
   m_Layer: 0
   m_Name: Tip
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
