@@ -147,7 +147,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852ebd4a949fb0d4cba527ef270ea3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_head: {fileID: 5692100040832887711}
   m_moveSpeed: 3
+  m_rotateSpeed: 60
+  m_bulletPrefab: {fileID: 3657363414213014454, guid: 679ede8fd9e2ac94a938733b93979bec, type: 3}
+  m_pow: 5
+  m_cannonTips: {fileID: 5527770949340320886}
+  m_intervalTime: 1
 --- !u!1 &4528174331226439836
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,12 +406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b469614f7b3d53a488b6f109dff0437c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_player: {fileID: 7695653948306510533}
-  m_rotateSpeed: 120
-  m_bulletPrefab: {fileID: 3657363414213014454, guid: 679ede8fd9e2ac94a938733b93979bec, type: 3}
-  m_pow: 5
-  m_cannonTips: {fileID: 5527770949340320886}
-  m_intervalTime: 1
 --- !u!1 &5468005750043293859
 GameObject:
   m_ObjectHideFlags: 0

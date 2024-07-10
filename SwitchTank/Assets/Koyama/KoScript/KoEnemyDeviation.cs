@@ -6,6 +6,9 @@ public class KoEnemyDeviation : MonoBehaviour
 {
     private KoEnemyManager enemyManager;
 
+    //ボディ
+    [SerializeField]
+    private KoEnemyBody m_body = null;
     //ヘッドの回転速度
     [SerializeField]
     private float m_rotateSpeed = 30.0f;
@@ -85,7 +88,7 @@ public class KoEnemyDeviation : MonoBehaviour
             transform.forward += forward * m_rotateSpeed * Time.deltaTime;
         }
 
-        if (m_interval < 0)
+        if (m_interval < 0&&m_body.GetVisibility())
         {
             GameObject BulletObj = Instantiate
                 (m_bulletPrefab,

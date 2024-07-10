@@ -33,7 +33,7 @@ public class KoBullet : MonoBehaviour
             Destroy(this.gameObject);
         }
         //íeÇ…ìñÇΩÇ¡ÇΩèÍçá
-        if (tag == "Bullet")
+        if (tag == "Bullet"||tag=="DestroyWall")
         {
             Destroy(this.gameObject);
         }

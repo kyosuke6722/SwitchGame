@@ -5,9 +5,28 @@ using UnityEngine;
 
 public class KoPlayer : MonoBehaviour
 {
+    [SerializeField]
+    private KoPlayerHead m_head;
+
     //移動速度
     [SerializeField]
     private float m_moveSpeed = 3.0f;
+    //ヘッドの回転速度
+    [SerializeField]
+    private float m_rotateSpeed = 60.0f;
+    //弾のプレハブ
+    [SerializeField]
+    private GameObject m_bulletPrefab = null;
+    //弾の発射速度
+    [SerializeField]
+    private float m_pow = 5.0f;
+    //弾の発射位置
+    [SerializeField]
+    private Transform m_cannonTips = null;
+    //リロード時間
+    [SerializeField]
+    private float m_intervalTime = 1.0f;
+    private float m_interval = 0.0f;
 
     //移動用横方向入力
     private float m_horizontalKeyInput = 0.0f;
@@ -16,6 +35,8 @@ public class KoPlayer : MonoBehaviour
 
     private Camera m_mainCamera = null;
     private Rigidbody m_rigidbody = null;
+
+    //public MPFT_NTD_MMControlSystem m_controlSystem = null;
 
     [SerializeField]
     public struct NTD_SGGamePad
@@ -118,13 +139,40 @@ public class KoPlayer : MonoBehaviour
 
     private void Update()
     {
+        m_interval -= Time.deltaTime;
+
         //PadCheck();
 
-        //移動キー入力取得
+        ////パッドIdを取得
+        //NpadId npadId = npadIds[1];
+
+        ////パッドの現在のスタイルを獲得
+        //NpadStyle npadStyle = Npad.GetStyleSet(npadId);
+
+        ////パッドが存在してない
+        //if (npadStyle == NpadStyle.None) return;
+
+        ////パッドの状態を獲得
+        //Npad.GetState(ref npadState, npadId, npadStyle);
+        //switch (npadStyle)
+        //{
+        //    ///左パッド
+        //    ///右パッド
+        //    case NpadStyle.JoyLeft:
+        //    case NpadStyle.JoyRight:
+        //        m_horizontalKeyInput = MMGamePad[1].MM_Analog_X;
+        //        m_verticalKeyInput = MMGamePad[1].MM_Analog_Y;
+        //        break;
+        //    case NpadStyle.Handheld:
+        //    case NpadStyle.FullKey:
+        //    case NpadStyle.JoyDual:
+        //        m_horizontalKeyInput = SGGamePad.L_Analog_X;
+        //        m_verticalKeyInput = SGGamePad.L_Analog_Y;
+        //        break;
+        //}
+
         m_horizontalKeyInput = Input.GetAxis("Horizontal");
-        //m_horizontalKeyInput = SGGamePad.L_Analog_X;
         m_verticalKeyInput = Input.GetAxis("Vertical");
-        //m_verticalKeyInput = SGGamePad.L_Analog_Y;
 
         NpadButton onButtons = 0;
         if ((onButtons & (NpadButton.Plus | NpadButton.Minus)) != 0)
@@ -133,7 +181,7 @@ public class KoPlayer : MonoBehaviour
         }
 
         //横移動
-        if(m_horizontalKeyInput!=0f)
+        if (m_horizontalKeyInput!=0f)
         {
             m_rigidbody.velocity += new Vector3(m_horizontalKeyInput * m_moveSpeed,0,0);
         }
@@ -142,6 +190,41 @@ public class KoPlayer : MonoBehaviour
         {
             m_rigidbody.velocity += new Vector3(0, 0, m_verticalKeyInput * m_moveSpeed);
         }
+
+        //for(int i = 0;i<npadIds.Length;i++)
+        //{
+        //ヘッド回転(左)
+        if (SGGamePad.MM_TL || MMGamePad[1].MM_SL || Input.GetKey(KeyCode.O))
+        {
+            m_head.transform.Rotate(new Vector3(0, -m_rotateSpeed * Time.deltaTime, 0));
+        }
+        //ヘッド回転(右)
+        if (SGGamePad.MM_TR || MMGamePad[1].MM_SR || Input.GetKey(KeyCode.P))
+        {
+            m_head.transform.Rotate(new Vector3(0, m_rotateSpeed * Time.deltaTime, 0));
+        }
+        //弾を発射
+        if (SGGamePad.Y || MMGamePad[1].MM_Up_B || Input.GetKeyDown(KeyCode.Space))
+        {
+            if (m_interval < 0)
+            {
+                GameObject BulletObj = Instantiate
+                    (m_bulletPrefab,
+                    m_cannonTips.position,
+                    this.transform.rotation);
+                BulletObj.transform.forward = this.transform.forward;
+
+                //弾のRigidbodyを取得
+                Rigidbody bulletrb = BulletObj.GetComponent<Rigidbody>();
+                if (bulletrb != null)
+                {
+                    //弾発射
+                    bulletrb.AddForce(m_head.transform.forward * m_pow, ForceMode.Impulse);
+                }
+                m_interval = m_intervalTime;
+            }
+        }
+        //}
     }
 
     private void FixedUpdate()
@@ -165,7 +248,7 @@ public class KoPlayer : MonoBehaviour
 
     void PadCheck()
     {
-        for(int i=0;i<npadIds.Length;i++)
+        for (int i = 0; i < npadIds.Length; i++)
         {
             //パッドIdを取得
             NpadId npadId = npadIds[i];
@@ -177,7 +260,7 @@ public class KoPlayer : MonoBehaviour
             if (npadStyle == NpadStyle.None) continue;
 
             //パッドの状態を獲得
-            Npad.GetState(ref npadState,npadId,npadStyle);
+            Npad.GetState(ref npadState, npadId, npadStyle);
 
             //パッドのスタイルによるボタン入力状況チェック
             switch (npadStyle)
@@ -346,7 +429,7 @@ public class KoPlayer : MonoBehaviour
 
         Debug.Log(controllerSupportArg);
         result = ControllerSupport.Show(controllerSupportArg);
-        if(!result.IsSuccess())
+        if (!result.IsSuccess())
         {
             Debug.Log(result);
         }

@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class KoEnemyManager : MonoBehaviour
 {
     private List<GameObject> m_enemies = new List<GameObject>();
-    [SerializeField]
-    private string clear_scene;
+    //[SerializeField]
+    //private string clear_scene;
 
     public void AddEnemy(GameObject enemy)
     {

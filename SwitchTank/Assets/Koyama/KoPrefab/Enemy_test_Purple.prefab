@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3081186329450416532}
   - component: {fileID: 7826200797596878092}
   - component: {fileID: 3444657977575222378}
+  - component: {fileID: 4733523944199032399}
   m_Layer: 0
   m_Name: Enemy_test_Purple
   m_TagString: Enemy
@@ -106,6 +107,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4733523944199032399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362138625978203517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e313394b84e6e664c9ea58d524f161e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_moveSpeed: 0
+  target: {fileID: 0}
+  m_stopDistance: 5
 --- !u!1 &850137471537544062
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767024626589258224}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 0.6666667, y: 1, z: 0.6666667}
   m_ConstrainProportionsScale: 0
@@ -361,6 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6fd34f3c48e1a940ba261cca683a080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_body: {fileID: 4733523944199032399}
   m_rotateSpeed: 2
   m_bulletPrefab: {fileID: 3657363414213014454, guid: 679ede8fd9e2ac94a938733b93979bec, type: 3}
   m_cannonTips: {fileID: 6831116513204814561}

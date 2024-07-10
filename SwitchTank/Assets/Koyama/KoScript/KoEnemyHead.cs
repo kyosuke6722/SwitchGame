@@ -6,9 +6,12 @@ public class KoEnemyHead : MonoBehaviour
 {
     private KoEnemyManager enemyManager;
 
+    //ボディ
+    [SerializeField]
+    private KoEnemyBody m_body = null; 
     //ヘッドの回転速度
     [SerializeField]
-    private float m_rotateSpeed = 30.0f;
+    private float m_rotateSpeed = 60.0f;
     //弾のプレハブ
     [SerializeField]
     private GameObject m_bulletPrefab = null;
@@ -49,7 +52,7 @@ public class KoEnemyHead : MonoBehaviour
             LockOn();
         }
 
-        if (m_interval < 0)
+        if (m_interval < 0&&m_body.GetVisibility())
         {
             GameObject BulletObj = Instantiate
                 (m_bulletPrefab,
