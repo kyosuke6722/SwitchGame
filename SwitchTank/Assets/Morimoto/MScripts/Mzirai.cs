@@ -28,6 +28,7 @@ public class Mzirai : MonoBehaviour
 
     private int m_cnt = 0;
     private int m_colorcnt = 0;
+    private const int m_minzirai = 0;
 
     private void Start()
     {
@@ -59,6 +60,8 @@ public class Mzirai : MonoBehaviour
                 Instantiate(m_ziraicol, transform.position, Quaternion.identity);
                 m_bcol.isTrigger = false;
                 m_isColor = false;
+                if (MPlayerControllerVS.m_p1ziraicnt > m_minzirai)
+                    MPlayerControllerVS.m_p1ziraicnt--;
                 Destroy(this.gameObject);
                 Destroy(col.gameObject);
             }
@@ -119,6 +122,8 @@ public class Mzirai : MonoBehaviour
             Instantiate(m_ziraicol, transform.position, Quaternion.identity);
             m_bcol.isTrigger = false;
             m_isColor = false;
+            if (MPlayerControllerVS.m_p1ziraicnt > m_minzirai)
+                MPlayerControllerVS.m_p1ziraicnt--;
             Destroy(this.gameObject);
         }
     }
@@ -128,6 +133,8 @@ public class Mzirai : MonoBehaviour
         Instantiate(m_effect, transform.position, Quaternion.identity);
         Instantiate(m_ziraicol, transform.position, Quaternion.identity);
         m_isColor = false;
+        if (MPlayerControllerVS.m_p1ziraicnt > m_minzirai)
+            MPlayerControllerVS.m_p1ziraicnt--;
         Destroy(this.gameObject);
         m_maxtime = 5.0f;
     }

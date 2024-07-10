@@ -18,6 +18,9 @@ public class MPlayerControllerVS : MonoBehaviour
     [SerializeField]
     private GameObject m_zirai = null;
 
+    private const int m_maxzirai = 2;
+    public static int m_p1ziraicnt = 0;
+
     private float velocity = 5.0f;
 
     //[SerializeField]
@@ -102,9 +105,13 @@ public class MPlayerControllerVS : MonoBehaviour
                 {
                     m_rigidbody.velocity = new Vector3(-velocity, 0, 0);
                 }
-                if (Input.GetKeyDown(KeyCode.Mouse1)){
-
-                    Instantiate(m_zirai, transform.position, Quaternion.identity);
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    if (m_maxzirai > m_p1ziraicnt)
+                    {
+                        m_p1ziraicnt++;
+                        Instantiate(m_zirai, transform.position, Quaternion.identity);
+                    }
                 }
                 break;
             case 6:
