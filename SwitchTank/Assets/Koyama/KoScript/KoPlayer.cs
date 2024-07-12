@@ -194,12 +194,12 @@ public class KoPlayer : MonoBehaviour
         //for(int i = 0;i<npadIds.Length;i++)
         //{
         //ƒwƒbƒh‰ñ“](¶)
-        if (SGGamePad.MM_TL || MMGamePad[1].MM_SL || Input.GetKey(KeyCode.O))
+        if (SGGamePad.MM_TL || MMGamePad[1].MM_SL || Input.GetKey(KeyCode.LeftArrow))
         {
             m_head.transform.Rotate(new Vector3(0, -m_rotateSpeed * Time.deltaTime, 0));
         }
         //ƒwƒbƒh‰ñ“](‰E)
-        if (SGGamePad.MM_TR || MMGamePad[1].MM_SR || Input.GetKey(KeyCode.P))
+        if (SGGamePad.MM_TR || MMGamePad[1].MM_SR || Input.GetKey(KeyCode.RightArrow))
         {
             m_head.transform.Rotate(new Vector3(0, m_rotateSpeed * Time.deltaTime, 0));
         }
