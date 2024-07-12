@@ -88,24 +88,36 @@ public class MPlayerControllerVS : MonoBehaviour
                 m_verticalKeyInput = m_controlSystem.SGGamePad.L_Analog_Y;
                 break;
             case 5:
+                //Windows用
                 //移動キー入力取得
-                if (Input.GetKey(KeyCode.W) || m_controlSystem.MMGamePad[1].MM_Analog_X > 0.0f)
-                {
-                    m_rigidbody.velocity = new Vector3(0, 0, velocity);
-                }
-                if (Input.GetKey(KeyCode.S) || m_controlSystem.MMGamePad[1].MM_Analog_X < 0.0f)
-                {
-                    m_rigidbody.velocity = new Vector3(0, 0, -velocity);
-                }
-                if (Input.GetKey(KeyCode.D) || m_controlSystem.MMGamePad[1].MM_Analog_Y < 0.0f)
-                {
-                    m_rigidbody.velocity = new Vector3(velocity, 0, 0);
-                }
-                if (Input.GetKey(KeyCode.A) || m_controlSystem.MMGamePad[1].MM_Analog_Y > 0.0f)
-                {
-                    m_rigidbody.velocity = new Vector3(-velocity, 0, 0);
-                }
-                if (Input.GetKeyDown(KeyCode.Mouse1))
+                //if (Input.GetKey(KeyCode.W) || m_controlSystem.MMGamePad[1].MM_Analog_X > 0.0f)
+                //{
+                //    m_rigidbody.velocity = new Vector3(0, 0, velocity);
+                //}
+                //if (Input.GetKey(KeyCode.S) || m_controlSystem.MMGamePad[1].MM_Analog_X < 0.0f)
+                //{
+                //    m_rigidbody.velocity = new Vector3(0, 0, -velocity);
+                //}
+                //if (Input.GetKey(KeyCode.D) || m_controlSystem.MMGamePad[1].MM_Analog_Y < 0.0f)
+                //{
+                //    m_rigidbody.velocity = new Vector3(velocity, 0, 0);
+                //}
+                //if (Input.GetKey(KeyCode.A) || m_controlSystem.MMGamePad[1].MM_Analog_Y > 0.0f)
+                //{
+                //    m_rigidbody.velocity = new Vector3(-velocity, 0, 0);
+                //}
+                //if (Input.GetKeyDown(KeyCode.Mouse1))
+                //{
+                //    if (m_maxzirai > m_p1ziraicnt)
+                //    {
+                //        m_p1ziraicnt++;
+                //        Instantiate(m_zirai, transform.position, Quaternion.identity);
+                //    }
+                //}
+
+                m_horizontalKeyInput = Input.GetAxis("GamePad1_L_X");
+                m_verticalKeyInput = Input.GetAxis("GamePad1_L_Y");
+                if (Input.GetKeyDown("joystick 1 button 2"))
                 {
                     if (m_maxzirai > m_p1ziraicnt)
                     {
@@ -115,22 +127,33 @@ public class MPlayerControllerVS : MonoBehaviour
                 }
                 break;
             case 6:
+                //Windows用
                 //移動キー入力取得
-                if (Input.GetKey(KeyCode.UpArrow) || m_controlSystem.MMGamePad[2].MM_Analog_X < 0.0f)
+                //if (Input.GetKey(KeyCode.UpArrow) || m_controlSystem.MMGamePad[2].MM_Analog_X < 0.0f)
+                //{
+                //    m_rigidbody.velocity = new Vector3(0, 0, velocity);
+                //}
+                //if (Input.GetKey(KeyCode.DownArrow) || m_controlSystem.MMGamePad[2].MM_Analog_X > 0.0f)
+                //{
+                //    m_rigidbody.velocity = new Vector3(0, 0, -velocity);
+                //}
+                //if (Input.GetKey(KeyCode.RightArrow) || m_controlSystem.MMGamePad[2].MM_Analog_Y > 0.0f)
+                //{
+                //    m_rigidbody.velocity = new Vector3(velocity, 0, 0);
+                //}
+                //if (Input.GetKey(KeyCode.LeftArrow) || m_controlSystem.MMGamePad[2].MM_Analog_Y < 0.0f)
+                //{
+                //    m_rigidbody.velocity = new Vector3(-velocity, 0, 0);
+                //}
+                m_horizontalKeyInput = Input.GetAxis("GamePad2_L_X");
+                m_verticalKeyInput = Input.GetAxis("GamePad2_L_Y");
+                if (Input.GetKeyDown("joystick 2 button 2"))
                 {
-                    m_rigidbody.velocity = new Vector3(0, 0, velocity);
-                }
-                if (Input.GetKey(KeyCode.DownArrow) || m_controlSystem.MMGamePad[2].MM_Analog_X > 0.0f)
-                {
-                    m_rigidbody.velocity = new Vector3(0, 0, -velocity);
-                }
-                if (Input.GetKey(KeyCode.RightArrow) || m_controlSystem.MMGamePad[2].MM_Analog_Y > 0.0f)
-                {
-                    m_rigidbody.velocity = new Vector3(velocity, 0, 0);
-                }
-                if (Input.GetKey(KeyCode.LeftArrow) || m_controlSystem.MMGamePad[2].MM_Analog_Y < 0.0f)
-                {
-                    m_rigidbody.velocity = new Vector3(-velocity, 0, 0);
+                    if (m_maxzirai > m_p1ziraicnt)
+                    {
+                        m_p1ziraicnt++;
+                        Instantiate(m_zirai, transform.position, Quaternion.identity);
+                    }
                 }
                 break;
         }
@@ -145,8 +168,9 @@ public class MPlayerControllerVS : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-        if (m_player != 5 && m_player != 6)
+    {   
+        //Windows用コメント化
+        //if (m_player != 5 && m_player != 6)
         {
             //キー入力による移動量を求める
             Vector3 move = CalcMoveDir(m_horizontalKeyInput, m_verticalKeyInput) * m_moveSpeed;
