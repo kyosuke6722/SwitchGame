@@ -33,6 +33,8 @@ public class KoPlayer : MonoBehaviour
     //ˆÚ“®—pc•ûŒü“ü—Í
     private float m_verticalKeyInput = 0.0f;
 
+    private float m_stickR;
+
     private Camera m_mainCamera = null;
     private Rigidbody m_rigidbody = null;
 
@@ -171,8 +173,10 @@ public class KoPlayer : MonoBehaviour
         //        break;
         //}
 
-        m_horizontalKeyInput = Input.GetAxis("Horizontal");
-        m_verticalKeyInput = Input.GetAxis("Vertical");
+        m_horizontalKeyInput = Input.GetAxis("GamePad1_L_X");
+        m_verticalKeyInput = Input.GetAxis("GamePad1_L_Y");
+
+        m_stickR = Input.GetAxis("GamePad1_R_X");
 
         NpadButton onButtons = 0;
         if ((onButtons & (NpadButton.Plus | NpadButton.Minus)) != 0)
@@ -194,17 +198,18 @@ public class KoPlayer : MonoBehaviour
         //for(int i = 0;i<npadIds.Length;i++)
         //{
         //ƒwƒbƒh‰ñ“](¶)
-        if (SGGamePad.MM_TL || MMGamePad[1].MM_SL || Input.GetKey(KeyCode.LeftArrow))
+        //if (SGGamePad.MM_TL || MMGamePad[1].MM_SL || Input.GetKey(KeyCode.LeftArrow))
+        if (m_stickR>0.0f)
         {
-            m_head.transform.Rotate(new Vector3(0, -m_rotateSpeed * Time.deltaTime, 0));
+            m_head.transform.Rotate(new Vector3(0, m_stickR*m_rotateSpeed * Time.deltaTime, 0));
         }
         //ƒwƒbƒh‰ñ“](‰E)
-        if (SGGamePad.MM_TR || MMGamePad[1].MM_SR || Input.GetKey(KeyCode.RightArrow))
+        if (m_stickR<0.0f)
         {
-            m_head.transform.Rotate(new Vector3(0, m_rotateSpeed * Time.deltaTime, 0));
+            m_head.transform.Rotate(new Vector3(0, m_stickR*m_rotateSpeed * Time.deltaTime, 0));
         }
         //’e‚ğ”­Ë
-        if (SGGamePad.Y || MMGamePad[1].MM_Up_B || Input.GetKeyDown(KeyCode.Space))
+        if (SGGamePad.Y || MMGamePad[1].MM_Up_B || Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown("joystick 1 button 5"))
         {
             if (m_interval < 0)
             {
