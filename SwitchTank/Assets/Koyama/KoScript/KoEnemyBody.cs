@@ -81,8 +81,8 @@ public class KoEnemyBody : MonoBehaviour
         }
         else
         {
-            //‰ó‚¹‚é•ÇˆÈŠO‚ÌáŠQ•¨‚ª‚ ‚ê‚Î‹ŠE‚ÍÕ‚ç‚ê‚é
-            if (hit.collider.tag != "DestroyWall")
+            //—áŠO‚ğœ‚¢‚ÄáŠQ•¨‚ª‚ ‚é‚Ì‚Å‹ŠE‚ªÕ‚ç‚ê‚é
+            if (hit.collider.tag != "DestroyWall"||hit.collider.tag!="jirai")
                 m_Visibility = false;
             if (m_navMeshAgent)
                 m_navMeshAgent.speed = m_moveSpeed;

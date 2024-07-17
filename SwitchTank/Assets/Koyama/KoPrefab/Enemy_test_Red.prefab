@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819dadb1cf521b74c939edadaac4475e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_body: {fileID: 0}
   m_rotateSpeed: 30
   m_bulletPrefab: {fileID: 3657363414213014454, guid: 679ede8fd9e2ac94a938733b93979bec, type: 3}
   m_cannonTips: {fileID: 1769888289043639850}
@@ -382,6 +383,7 @@ GameObject:
   - component: {fileID: 6050484941888214732}
   - component: {fileID: 3789391686038341214}
   - component: {fileID: 4550042852653854784}
+  - component: {fileID: 1558782516988854607}
   m_Layer: 0
   m_Name: Enemy_test_Red
   m_TagString: Enemy
@@ -498,7 +500,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
@@ -516,7 +518,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_moveSpeed: 3
-  target: {fileID: 0}
   m_stopDistance: 10
 --- !u!195 &4550042852653854784
 NavMeshAgent:
@@ -540,3 +541,18 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1558782516988854607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8126023286534654629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9d3f7682e693243bb9e4a20c9155c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JiraiEffectPrefab: {fileID: 100000, guid: 5d028565f79e270408884b995abc06ef, type: 3}
+  BulletEffectPrefab: {fileID: 100000, guid: 5d028565f79e270408884b995abc06ef, type: 3}
+  se: {fileID: 8300000, guid: e38d15acc459da849a63c0deaa71fd1d, type: 3}

@@ -262,7 +262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723416818349392168, guid: 30e3312bb9ac5574fbac3e53581c63d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 4723416818349392168, guid: 30e3312bb9ac5574fbac3e53581c63d1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -417,7 +417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6366349814055909904, guid: ee0e83e3bf68c2b49a83371d69de88c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 6366349814055909904, guid: ee0e83e3bf68c2b49a83371d69de88c5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -678,7 +678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6366349814055909904, guid: ee0e83e3bf68c2b49a83371d69de88c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 6366349814055909904, guid: ee0e83e3bf68c2b49a83371d69de88c5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1249,6 +1249,10 @@ PrefabInstance:
     - target: {fileID: 6340478495317925953, guid: 61297a7b70d9f0340afa830d50218cd3, type: 3}
       propertyPath: m_Name
       value: map (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340478495317925953, guid: 61297a7b70d9f0340afa830d50218cd3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6487905398914067758, guid: 61297a7b70d9f0340afa830d50218cd3, type: 3}
       propertyPath: m_Enabled
@@ -1975,7 +1979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4037776705342261292, guid: f2d79c65655c53c41915cc0c9dbb37bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 4037776705342261292, guid: f2d79c65655c53c41915cc0c9dbb37bf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2083,8 +2087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbe0cb94eceaa8458ef46dbc8277d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugText: {fileID: 0}
-  DebugMes: 
 --- !u!4 &1617740348
 Transform:
   m_ObjectHideFlags: 0

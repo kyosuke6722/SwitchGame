@@ -53,5 +53,8 @@ public class KoGameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //カーソルをオフ
+        Cursor.visible = false;
     }
 }
