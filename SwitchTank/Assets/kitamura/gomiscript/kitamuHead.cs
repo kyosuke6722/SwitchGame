@@ -29,18 +29,18 @@ public class KitamurarHead : MonoBehaviour
         m_interval -= Time.deltaTime;
 
         //ÉwÉbÉhÇâÒì](ç∂)
-        if (Input.GetKey(KeyCode.O) || m_player.SGGamePad.MM_UTL)
-        {
-            transform.Rotate(new Vector3(0, -m_rotateSpeed * Time.deltaTime, 0));
-        }
+        //if (Input.GetKey(KeyCode.O) || m_player.SGGamePad.MM_UTL)
+        //{
+        //    transform.Rotate(new Vector3(0, -m_rotateSpeed * Time.deltaTime, 0));
+        //}
         //(âE)
-        if (Input.GetKey(KeyCode.P) || m_player.SGGamePad.MM_UTR)
-        {
-            transform.Rotate(new Vector3(0, m_rotateSpeed * Time.deltaTime, 0));
-        }
+        //if (Input.GetKey(KeyCode.P) || m_player.SGGamePad.MM_UTR)
+        //{
+        //    transform.Rotate(new Vector3(0, m_rotateSpeed * Time.deltaTime, 0));
+        //}
 
         //íeÇî≠éÀ
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || m_player.SGGamePad.Y)
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))// || m_player.SGGamePad.Y)
         {
             if (m_interval < 0)
             {

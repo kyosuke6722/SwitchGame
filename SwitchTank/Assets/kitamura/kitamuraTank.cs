@@ -3,7 +3,7 @@ using System.Collections.Generic;
 //using nn.hid;
 using UnityEngine;
 
-public class KitamuraTank : MonoBehaviour
+public class kitamuraTank : MonoBehaviour
 {
     //ˆÚ“®‘¬“x
     [SerializeField]

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 //using nn.oe;
 
-public class Timer : MonoBehaviour
+public class kitamuraTimer : MonoBehaviour
 {
 
     public Text CountText;

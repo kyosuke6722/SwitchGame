@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KitamurarHead : MonoBehaviour
+public class KitamuraHead : MonoBehaviour
 {
     [SerializeField]
     private KoPlayer m_player;
