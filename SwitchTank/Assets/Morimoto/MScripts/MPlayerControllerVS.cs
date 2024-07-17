@@ -18,8 +18,10 @@ public class MPlayerControllerVS : MonoBehaviour
     [SerializeField]
     private GameObject m_zirai = null;
 
-    private const int m_maxzirai = 2;
+    private int m_maxp1zirai = 2;
+    private int m_maxp2zirai = 2;
     public static int m_p1ziraicnt = 0;
+    public static int m_p2ziraicnt = 0;
 
     private float velocity = 5.0f;
 
@@ -46,7 +48,11 @@ public class MPlayerControllerVS : MonoBehaviour
         //Rigidbodyコンポーネントを取得
         m_rigidbody = GetComponent<Rigidbody>();
         //MPFT_NTD_MMControlSystem m_controlSystem;
-}
+        m_maxp1zirai = 2;
+        m_maxp2zirai = 2;
+        m_p2ziraicnt = 0;
+        m_p2ziraicnt = 0;
+    }
 
     //移動ベクトルを算出
     private Vector3 CalcMoveDir(float moveX, float moveZ)
@@ -119,7 +125,7 @@ public class MPlayerControllerVS : MonoBehaviour
                 m_verticalKeyInput = Input.GetAxis("GamePad1_L_Y");
                 if (Input.GetKeyDown("joystick 1 button 2"))
                 {
-                    if (m_maxzirai > m_p1ziraicnt)
+                    if (m_maxp1zirai > m_p1ziraicnt)
                     {
                         m_p1ziraicnt++;
                         Instantiate(m_zirai, transform.position, Quaternion.identity);
@@ -149,9 +155,9 @@ public class MPlayerControllerVS : MonoBehaviour
                 m_verticalKeyInput = Input.GetAxis("GamePad2_L_Y");
                 if (Input.GetKeyDown("joystick 2 button 2"))
                 {
-                    if (m_maxzirai > m_p1ziraicnt)
+                    if (m_maxp2zirai > m_p2ziraicnt)
                     {
-                        m_p1ziraicnt++;
+                        m_p2ziraicnt++;
                         Instantiate(m_zirai, transform.position, Quaternion.identity);
                     }
                 }

@@ -18,7 +18,7 @@ public class MNozzleControllerVS : MonoBehaviour
     [SerializeField]
     private int m_player = 1;
 
-    private float m_intervaltime = 0.1f;
+    private float m_intervaltime = 0.25f;
     private float m_interval = 0.0f;
 
     private float angle1p = 0.0f;

@@ -62,6 +62,8 @@ public class Mzirai : MonoBehaviour
                 m_isColor = false;
                 if (MPlayerControllerVS.m_p1ziraicnt > m_minzirai)
                     MPlayerControllerVS.m_p1ziraicnt--;
+                if (MPlayerControllerVS.m_p2ziraicnt > m_minzirai)
+                    MPlayerControllerVS.m_p2ziraicnt--;
                 Destroy(this.gameObject);
                 Destroy(col.gameObject);
             }
@@ -124,6 +126,8 @@ public class Mzirai : MonoBehaviour
             m_isColor = false;
             if (MPlayerControllerVS.m_p1ziraicnt > m_minzirai)
                 MPlayerControllerVS.m_p1ziraicnt--;
+            if (MPlayerControllerVS.m_p2ziraicnt > m_minzirai)
+                MPlayerControllerVS.m_p2ziraicnt--;
             Destroy(this.gameObject);
         }
     }
@@ -135,6 +139,8 @@ public class Mzirai : MonoBehaviour
         m_isColor = false;
         if (MPlayerControllerVS.m_p1ziraicnt > m_minzirai)
             MPlayerControllerVS.m_p1ziraicnt--;
+        if (MPlayerControllerVS.m_p2ziraicnt > m_minzirai)
+            MPlayerControllerVS.m_p2ziraicnt--;
         Destroy(this.gameObject);
         m_maxtime = 5.0f;
     }
