@@ -43,6 +43,8 @@ public class KoEnemyHead : MonoBehaviour
 
     void Update()
     {
+        if (m_body == null) return;
+
         m_recoil -= Time.deltaTime;
         m_interval -= Time.deltaTime;
 
