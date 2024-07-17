@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using nn.oe;
+//using nn.oe;
 
 public class Timer : MonoBehaviour
 {

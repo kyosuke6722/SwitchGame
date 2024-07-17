@@ -32,7 +32,7 @@ public class MNozzleControllerVS : MonoBehaviour
 
     public static int m_countVS = 0;
     
-    public MPFT_NTD_MMControlSystem m_controlSystem = null;
+    //public MPFT_NTD_MMControlSystem m_controlSystem = null;
 
     private void Start()
     {
@@ -44,8 +44,8 @@ public class MNozzleControllerVS : MonoBehaviour
     private void Update()
     {
         //ƒJƒƒ‰—p‰¡•ûŒü“ü—Í
-        angle1p = Input.GetAxis("GamePad1_R_X") * 0.5f;
-        angle2p = Input.GetAxis("GamePad2_R_X") * 0.5f;
+        angle1p = Input.GetAxis("GamePad1_R_X")*3;
+        angle2p = Input.GetAxis("GamePad2_R_X")*3;
         m_interval -= Time.deltaTime;
         m_time++;
         switch (m_player)
@@ -68,7 +68,7 @@ public class MNozzleControllerVS : MonoBehaviour
                     //this.transform.Rotate(new Vector3(0f, m_angle, 0f));
                     this.transform.Rotate(new Vector3(0f, angle1p, 0f));
                 }
-                if (Input.GetKeyDown(KeyCode.R) || m_controlSystem.MMGamePad[1].MM_Right_A || Input.GetKeyDown("joystick 1 button 5"))
+                if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown("joystick 1 button 5"))
                 {
                     if (m_count > 0 && m_interval < 0.0f && m_count <= Mzandan.m_maxP1bullet)
                     {
@@ -99,7 +99,7 @@ public class MNozzleControllerVS : MonoBehaviour
                     //this.transform.Rotate(new Vector3(0f, m_angle, 0f));
                     this.transform.Rotate(new Vector3(0f, angle2p, 0f));
                 }
-                if (Input.GetKeyDown(KeyCode.Backslash) || m_controlSystem.MMGamePad[2].MM_Left_Y || Input.GetKeyDown("joystick 2 button 5"))//]
+                if (Input.GetKeyDown(KeyCode.Backslash) || Input.GetKeyDown("joystick 2 button 5"))//]
                 {
                     if (m_countVS > 0 && m_interval < 0.0f && m_count <= Mzandan.m_maxP2bullet)
                     {
@@ -138,15 +138,15 @@ public class MNozzleControllerVS : MonoBehaviour
                 {
 
                 }
-                if (Input.GetKey(KeyCode.Q) || m_controlSystem.SGGamePad.MM_UTL)
+                if (Input.GetKey(KeyCode.Q))
                 {
                     this.transform.Rotate(new Vector3(0f, -m_angle, 0f));
                 }
-                if (Input.GetKey(KeyCode.E) || m_controlSystem.SGGamePad.MM_UTR)
+                if (Input.GetKey(KeyCode.E))
                 {
                     this.transform.Rotate(new Vector3(0f, m_angle, 0f));
                 }
-                if (Input.GetKeyDown(KeyCode.R) || m_controlSystem.SGGamePad.A)
+                if (Input.GetKeyDown(KeyCode.R))
                 {
                     if (m_count > 0 && m_interval < 0.0f)
                     {

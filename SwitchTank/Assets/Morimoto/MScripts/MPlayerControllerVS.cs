@@ -1,4 +1,4 @@
-using nn.hid;
+//using nn.hid;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -38,7 +38,7 @@ public class MPlayerControllerVS : MonoBehaviour
     //移動用縦方向入力
     private float m_verticalKeyInput = 0.0f;
 
-    public MPFT_NTD_MMControlSystem m_controlSystem = null;
+    //public MPFT_NTD_MMControlSystem m_controlSystem = null;
 
     private void Awake()
     {
@@ -67,15 +67,15 @@ public class MPlayerControllerVS : MonoBehaviour
         {
             case 1:
                 //移動キー入力取得
-                m_horizontalKeyInput = m_controlSystem.MMGamePad[1].MM_Analog_X;
-                m_verticalKeyInput = m_controlSystem.MMGamePad[1].MM_Analog_Y;
+                //m_horizontalKeyInput = m_controlSystem.MMGamePad[1].MM_Analog_X;
+                //m_verticalKeyInput = m_controlSystem.MMGamePad[1].MM_Analog_Y;
                 //m_horizontalKeyInput = Input.GetAxis("Horizontal");
                 //m_verticalKeyInput = Input.GetAxis("Vertical");
                 break;
             case 2:
                 //移動キー入力取得
-                m_horizontalKeyInput = m_controlSystem.MMGamePad[2].MM_Analog_X;
-                m_verticalKeyInput = m_controlSystem.MMGamePad[2].MM_Analog_Y;
+                //m_horizontalKeyInput = m_controlSystem.MMGamePad[2].MM_Analog_X;
+                //m_verticalKeyInput = m_controlSystem.MMGamePad[2].MM_Analog_Y;
                 //m_horizontalKeyInput = Input.GetAxis("Horizontal");
                 //m_verticalKeyInput = Input.GetAxis("Vertical");
                 break;
@@ -84,8 +84,8 @@ public class MPlayerControllerVS : MonoBehaviour
                 break;
             case 4:
                 //移動キー入力取得
-                m_horizontalKeyInput = m_controlSystem.SGGamePad.L_Analog_X;
-                m_verticalKeyInput = m_controlSystem.SGGamePad.L_Analog_Y;
+                //m_horizontalKeyInput = m_controlSystem.SGGamePad.L_Analog_X;
+                //m_verticalKeyInput = m_controlSystem.SGGamePad.L_Analog_Y;
                 break;
             case 5:
                 //Windows用

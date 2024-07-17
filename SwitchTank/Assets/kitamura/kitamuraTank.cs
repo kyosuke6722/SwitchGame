@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using nn.hid;
+//using nn.hid;
 using UnityEngine;
 
 public class KitamuraTank : MonoBehaviour
@@ -62,42 +62,42 @@ public class KitamuraTank : MonoBehaviour
     [SerializeField]
     public NTD_MMGamePad[] MMGamePad = new NTD_MMGamePad[4];
 
-    //コントロール格納
-    private ControllerSupportArg controllerSupportArg = new ControllerSupportArg();
-    //nnリクエスト
-    private nn.Result result = new nn.Result();
+    ////コントロール格納
+    //private ControllerSupportArg controllerSupportArg = new ControllerSupportArg();
+    ////nnリクエスト
+    //private nn.Result result = new nn.Result();
 
-    private NpadId[] npadIds =
-    {
-        NpadId.Handheld,
-        NpadId.No1,
-        NpadId.No2
-    };
+    //private NpadId[] npadIds =
+    //{
+    //    NpadId.Handheld,
+    //    NpadId.No1,
+    //    NpadId.No2
+    //};
 
-    public NpadState npadState = new NpadState();
+    //public NpadState npadState = new NpadState();
 
     void Start()
     {
-        //パッド初期化
-        Npad.Initialize();
-        //パッドサポートタイプはid群
-        Npad.SetSupportedIdType(npadIds);
-        ///パッドのタイプは【横向き型】
-        NpadJoy.SetHoldType(NpadJoyHoldType.Horizontal);
+        ////パッド初期化
+        //Npad.Initialize();
+        ////パッドサポートタイプはid群
+        //Npad.SetSupportedIdType(npadIds);
+        /////パッドのタイプは【横向き型】
+        //NpadJoy.SetHoldType(NpadJoyHoldType.Horizontal);
 
-        //パッドサポートタイプ
-        Npad.SetSupportedStyleSet(
-            NpadStyle.FullKey |     ///スイッチ合体型
-            NpadStyle.Handheld |    ///ハンドヘルド
-            NpadStyle.JoyDual |     ///別枠合体型コントローラー
-            NpadStyle.JoyLeft |     ///お裾分け左パッド
-            NpadStyle.JoyRight);    ///お裾分け右パッド
+        ////パッドサポートタイプ
+        //Npad.SetSupportedStyleSet(
+        //    NpadStyle.FullKey |     ///スイッチ合体型
+        //    NpadStyle.Handheld |    ///ハンドヘルド
+        //    NpadStyle.JoyDual |     ///別枠合体型コントローラー
+        //    NpadStyle.JoyLeft |     ///お裾分け左パッド
+        //    NpadStyle.JoyRight);    ///お裾分け右パッド
 
-        ///全てのパッドをシングルモードに変更
-        foreach (NpadId NP in npadIds)
-        {
-            NpadJoy.SetAssignmentModeSingle(NP);
-        }
+        /////全てのパッドをシングルモードに変更
+        //foreach (NpadId NP in npadIds)
+        //{
+        //    NpadJoy.SetAssignmentModeSingle(NP);
+        //}
 
         m_mainCamera = Camera.main;
         m_rigidbody = GetComponent<Rigidbody>();
@@ -126,11 +126,11 @@ public class KitamuraTank : MonoBehaviour
         m_verticalKeyInput = Input.GetAxis("Vertical");
         //m_verticalKeyInput = SGGamePad.L_Analog_Y;
 
-        NpadButton onButtons = 0;
-        if ((onButtons & (NpadButton.Plus | NpadButton.Minus)) != 0)
-        {
-            ShowControllerSupport();
-        }
+        //NpadButton onButtons = 0;
+        //if ((onButtons & (NpadButton.Plus | NpadButton.Minus)) != 0)
+        //{
+        //    ShowControllerSupport();
+        //}
 
         //横移動
         if (m_horizontalKeyInput != 0f)
@@ -163,206 +163,206 @@ public class KitamuraTank : MonoBehaviour
         //SceneManager.LoadScene(gameover_scene);
     }
 
-    void PadCheck()
-    {
-        for (int i = 0; i < npadIds.Length; i++)
-        {
-            //パッドIdを取得
-            NpadId npadId = npadIds[i];
+    //void PadCheck()
+    //{
+    //    for (int i = 0; i < npadIds.Length; i++)
+    //    {
+    //        //パッドIdを取得
+    //        NpadId npadId = npadIds[i];
 
-            //パッドの現在のスタイルを獲得
-            NpadStyle npadStyle = Npad.GetStyleSet(npadId);
+    //        //パッドの現在のスタイルを獲得
+    //        NpadStyle npadStyle = Npad.GetStyleSet(npadId);
 
-            //パッドが存在してない
-            if (npadStyle == NpadStyle.None) continue;
+    //        //パッドが存在してない
+    //        if (npadStyle == NpadStyle.None) continue;
 
-            //パッドの状態を獲得
-            Npad.GetState(ref npadState, npadId, npadStyle);
+    //        //パッドの状態を獲得
+    //        Npad.GetState(ref npadState, npadId, npadStyle);
 
-            //パッドのスタイルによるボタン入力状況チェック
-            switch (npadStyle)
-            {
-                ///左パッド
-                case NpadStyle.JoyLeft:
-                    JoyNullSet(i);
-                    JoyLeftSet(npadState, i);
-                    break;
-                ///右パッド
-                case NpadStyle.JoyRight:
-                    JoyNullSet(i);
-                    JoyRightSet(npadState, i);
-                    break;
-                case NpadStyle.Handheld:
-                    JoySGNullSet();
-                    JoySingleSet(npadState);
-                    break;
-            }
-        }
-    }
+    //        //パッドのスタイルによるボタン入力状況チェック
+    //        switch (npadStyle)
+    //        {
+    //            ///左パッド
+    //            case NpadStyle.JoyLeft:
+    //                JoyNullSet(i);
+    //                JoyLeftSet(npadState, i);
+    //                break;
+    //            ///右パッド
+    //            case NpadStyle.JoyRight:
+    //                JoyNullSet(i);
+    //                JoyRightSet(npadState, i);
+    //                break;
+    //            case NpadStyle.Handheld:
+    //                JoySGNullSet();
+    //                JoySingleSet(npadState);
+    //                break;
+    //        }
+    //    }
+    //}
 
-    void JoySGNullSet()
-    {
-        SGGamePad.L_Analog_X = 0.0f;
-        SGGamePad.L_Analog_Y = 0.0f;
-        SGGamePad.R_Analog_X = 0.0f;
-        SGGamePad.R_Analog_Y = 0.0f;
+    //void JoySGNullSet()
+    //{
+    //    SGGamePad.L_Analog_X = 0.0f;
+    //    SGGamePad.L_Analog_Y = 0.0f;
+    //    SGGamePad.R_Analog_X = 0.0f;
+    //    SGGamePad.R_Analog_Y = 0.0f;
 
-        SGGamePad.Up = false;
-        SGGamePad.Down = false;
-        SGGamePad.Right = false;
-        SGGamePad.Left = false;
-        SGGamePad.B = false;
-        SGGamePad.X = false;
-        SGGamePad.A = false;
-        SGGamePad.Y = false;
-        SGGamePad.Plus = false;
-        SGGamePad.Minus = false;
-        SGGamePad.MM_TL = false;
-        SGGamePad.MM_TR = false;
-        SGGamePad.MM_UTL = false;
-        SGGamePad.MM_UTR = false;
-    }
+    //    SGGamePad.Up = false;
+    //    SGGamePad.Down = false;
+    //    SGGamePad.Right = false;
+    //    SGGamePad.Left = false;
+    //    SGGamePad.B = false;
+    //    SGGamePad.X = false;
+    //    SGGamePad.A = false;
+    //    SGGamePad.Y = false;
+    //    SGGamePad.Plus = false;
+    //    SGGamePad.Minus = false;
+    //    SGGamePad.MM_TL = false;
+    //    SGGamePad.MM_TR = false;
+    //    SGGamePad.MM_UTL = false;
+    //    SGGamePad.MM_UTR = false;
+    //}
 
-    void JoySingleSet(NpadState NS)
-    {
-        SGGamePad.L_Analog_X = NS.analogStickL.x;
-        SGGamePad.L_Analog_X /= AnalogStickState.Max;
-        SGGamePad.L_Analog_Y = NS.analogStickL.y;
-        SGGamePad.L_Analog_Y /= AnalogStickState.Max;
+    //void JoySingleSet(NpadState NS)
+    //{
+    //    SGGamePad.L_Analog_X = NS.analogStickL.x;
+    //    SGGamePad.L_Analog_X /= AnalogStickState.Max;
+    //    SGGamePad.L_Analog_Y = NS.analogStickL.y;
+    //    SGGamePad.L_Analog_Y /= AnalogStickState.Max;
 
-        SGGamePad.R_Analog_X = NS.analogStickR.x;
-        SGGamePad.R_Analog_X /= AnalogStickState.Max;
-        SGGamePad.R_Analog_Y = NS.analogStickR.y;
-        SGGamePad.R_Analog_Y /= AnalogStickState.Max;
+    //    SGGamePad.R_Analog_X = NS.analogStickR.x;
+    //    SGGamePad.R_Analog_X /= AnalogStickState.Max;
+    //    SGGamePad.R_Analog_Y = NS.analogStickR.y;
+    //    SGGamePad.R_Analog_Y /= AnalogStickState.Max;
 
-        SGGamePad.Up = NS.GetButton(NpadButton.Up);
-        SGGamePad.Down = NS.GetButton(NpadButton.Down);
-        SGGamePad.Right = NS.GetButton(NpadButton.Right);
-        SGGamePad.Left = NS.GetButton(NpadButton.Left);
+    //    SGGamePad.Up = NS.GetButton(NpadButton.Up);
+    //    SGGamePad.Down = NS.GetButton(NpadButton.Down);
+    //    SGGamePad.Right = NS.GetButton(NpadButton.Right);
+    //    SGGamePad.Left = NS.GetButton(NpadButton.Left);
 
-        SGGamePad.B = NS.GetButton(NpadButton.B);
-        SGGamePad.X = NS.GetButton(NpadButton.X);
-        SGGamePad.A = NS.GetButton(NpadButton.A);
-        SGGamePad.Y = NS.GetButton(NpadButton.Y);
+    //    SGGamePad.B = NS.GetButton(NpadButton.B);
+    //    SGGamePad.X = NS.GetButton(NpadButton.X);
+    //    SGGamePad.A = NS.GetButton(NpadButton.A);
+    //    SGGamePad.Y = NS.GetButton(NpadButton.Y);
 
-        SGGamePad.Plus = NS.GetButton(NpadButton.Plus);
-        SGGamePad.Minus = NS.GetButton(NpadButton.Minus);
-        SGGamePad.MM_TL = NS.GetButton(NpadButton.ZL);
-        SGGamePad.MM_TR = NS.GetButton(NpadButton.ZR);
-        SGGamePad.MM_UTL = NS.GetButton(NpadButton.L);
-        SGGamePad.MM_UTR = NS.GetButton(NpadButton.R);
-    }
-    void JoyNullSet(int No)
-    {
-        MMGamePad[No].MM_Analog_X = 0.0f;
-        MMGamePad[No].MM_Analog_Y = 0.0f;
+    //    SGGamePad.Plus = NS.GetButton(NpadButton.Plus);
+    //    SGGamePad.Minus = NS.GetButton(NpadButton.Minus);
+    //    SGGamePad.MM_TL = NS.GetButton(NpadButton.ZL);
+    //    SGGamePad.MM_TR = NS.GetButton(NpadButton.ZR);
+    //    SGGamePad.MM_UTL = NS.GetButton(NpadButton.L);
+    //    SGGamePad.MM_UTR = NS.GetButton(NpadButton.R);
+    //}
+    //void JoyNullSet(int No)
+    //{
+    //    MMGamePad[No].MM_Analog_X = 0.0f;
+    //    MMGamePad[No].MM_Analog_Y = 0.0f;
 
-        MMGamePad[No].MM_Up_B = false;
-        MMGamePad[No].MM_Down_X = false;
-        MMGamePad[No].MM_Left_Y = false;
-        MMGamePad[No].MM_Right_A = false;
+    //    MMGamePad[No].MM_Up_B = false;
+    //    MMGamePad[No].MM_Down_X = false;
+    //    MMGamePad[No].MM_Left_Y = false;
+    //    MMGamePad[No].MM_Right_A = false;
 
-        MMGamePad[No].MM_Plus_Minus = false;
-        MMGamePad[No].MM_SL = false;
-        MMGamePad[No].MM_SR = false;
-        MMGamePad[No].MM_T = false;
-        MMGamePad[No].MM_UT = false;
-    }
+    //    MMGamePad[No].MM_Plus_Minus = false;
+    //    MMGamePad[No].MM_SL = false;
+    //    MMGamePad[No].MM_SR = false;
+    //    MMGamePad[No].MM_T = false;
+    //    MMGamePad[No].MM_UT = false;
+    //}
 
-    void JoyLeftSet(NpadState NS, int No)
-    {
-        MMGamePad[No].MM_Analog_X = 0.0f;
-        MMGamePad[No].MM_Analog_Y = 0.0f;
+    //void JoyLeftSet(NpadState NS, int No)
+    //{
+    //    MMGamePad[No].MM_Analog_X = 0.0f;
+    //    MMGamePad[No].MM_Analog_Y = 0.0f;
 
-        MMGamePad[No].MM_Analog_X = -NS.analogStickL.y;
-        MMGamePad[No].MM_Analog_X /= AnalogStickState.Max;
+    //    MMGamePad[No].MM_Analog_X = -NS.analogStickL.y;
+    //    MMGamePad[No].MM_Analog_X /= AnalogStickState.Max;
 
-        MMGamePad[No].MM_Analog_Y = NS.analogStickL.x;
-        MMGamePad[No].MM_Analog_Y /= AnalogStickState.Max;
+    //    MMGamePad[No].MM_Analog_Y = NS.analogStickL.x;
+    //    MMGamePad[No].MM_Analog_Y /= AnalogStickState.Max;
 
-        MMGamePad[No].MM_Up_B = NS.GetButton(NpadButton.Up);
-        MMGamePad[No].MM_Down_X = NS.GetButton(NpadButton.Down);
-        MMGamePad[No].MM_Left_Y = NS.GetButton(NpadButton.Left);
-        MMGamePad[No].MM_Right_A = NS.GetButton(NpadButton.Right);
+    //    MMGamePad[No].MM_Up_B = NS.GetButton(NpadButton.Up);
+    //    MMGamePad[No].MM_Down_X = NS.GetButton(NpadButton.Down);
+    //    MMGamePad[No].MM_Left_Y = NS.GetButton(NpadButton.Left);
+    //    MMGamePad[No].MM_Right_A = NS.GetButton(NpadButton.Right);
 
-        MMGamePad[No].MM_Plus_Minus = NS.GetButton(NpadButton.Minus);
-        MMGamePad[No].MM_SL = NS.GetButton(NpadButton.LeftSL);
-        MMGamePad[No].MM_SR = NS.GetButton(NpadButton.LeftSR);
-        MMGamePad[No].MM_T = NS.GetButton(NpadButton.ZL);
-        MMGamePad[No].MM_UT = NS.GetButton(NpadButton.L);
-    }
+    //    MMGamePad[No].MM_Plus_Minus = NS.GetButton(NpadButton.Minus);
+    //    MMGamePad[No].MM_SL = NS.GetButton(NpadButton.LeftSL);
+    //    MMGamePad[No].MM_SR = NS.GetButton(NpadButton.LeftSR);
+    //    MMGamePad[No].MM_T = NS.GetButton(NpadButton.ZL);
+    //    MMGamePad[No].MM_UT = NS.GetButton(NpadButton.L);
+    //}
 
-    void JoyRightSet(NpadState NS, int No)
-    {
-        MMGamePad[No].MM_Analog_X = 0.0f;
-        MMGamePad[No].MM_Analog_Y = 0.0f;
+    //void JoyRightSet(NpadState NS, int No)
+    //{
+    //    MMGamePad[No].MM_Analog_X = 0.0f;
+    //    MMGamePad[No].MM_Analog_Y = 0.0f;
 
-        MMGamePad[No].MM_Analog_X = NS.analogStickR.y;
-        MMGamePad[No].MM_Analog_X /= AnalogStickState.Max;
+    //    MMGamePad[No].MM_Analog_X = NS.analogStickR.y;
+    //    MMGamePad[No].MM_Analog_X /= AnalogStickState.Max;
 
-        MMGamePad[No].MM_Analog_Y = -NS.analogStickR.x;
-        MMGamePad[No].MM_Analog_Y /= AnalogStickState.Max;
+    //    MMGamePad[No].MM_Analog_Y = -NS.analogStickR.x;
+    //    MMGamePad[No].MM_Analog_Y /= AnalogStickState.Max;
 
-        MMGamePad[No].MM_Up_B = NS.GetButton(NpadButton.B);
-        MMGamePad[No].MM_Down_X = NS.GetButton(NpadButton.X);
-        MMGamePad[No].MM_Left_Y = NS.GetButton(NpadButton.Y);
-        MMGamePad[No].MM_Right_A = NS.GetButton(NpadButton.A);
+    //    MMGamePad[No].MM_Up_B = NS.GetButton(NpadButton.B);
+    //    MMGamePad[No].MM_Down_X = NS.GetButton(NpadButton.X);
+    //    MMGamePad[No].MM_Left_Y = NS.GetButton(NpadButton.Y);
+    //    MMGamePad[No].MM_Right_A = NS.GetButton(NpadButton.A);
 
 
-        MMGamePad[No].MM_Plus_Minus = NS.GetButton(NpadButton.Plus);
-        MMGamePad[No].MM_SL = NS.GetButton(NpadButton.RightSL);
-        MMGamePad[No].MM_SR = NS.GetButton(NpadButton.RightSR);
-        MMGamePad[No].MM_T = NS.GetButton(NpadButton.ZR);
-        MMGamePad[No].MM_UT = NS.GetButton(NpadButton.R);
-    }
+    //    MMGamePad[No].MM_Plus_Minus = NS.GetButton(NpadButton.Plus);
+    //    MMGamePad[No].MM_SL = NS.GetButton(NpadButton.RightSL);
+    //    MMGamePad[No].MM_SR = NS.GetButton(NpadButton.RightSR);
+    //    MMGamePad[No].MM_T = NS.GetButton(NpadButton.ZR);
+    //    MMGamePad[No].MM_UT = NS.GetButton(NpadButton.R);
+    //}
 
-    void ShowControllerSupport()
-    {
-        controllerSupportArg.SetDefault();
-        controllerSupportArg.playerCountMax = (byte)(npadIds.Length - 1);
+    //void ShowControllerSupport()
+    //{
+    //    controllerSupportArg.SetDefault();
+    //    controllerSupportArg.playerCountMax = (byte)(npadIds.Length - 1);
 
-        //識別色を有効化
-        controllerSupportArg.enableIdentificationColor = true;
-        nn.util.Color4u8 color = new nn.util.Color4u8();
-        //赤
-        color.Set(255, 128, 128, 255);
-        controllerSupportArg.identificationColor[0] = color;
-        //青
-        color.Set(128, 128, 255, 255);
-        controllerSupportArg.identificationColor[1] = color;
-        //緑
-        color.Set(128, 255, 128, 255);
-        controllerSupportArg.identificationColor[2] = color;
-        //黄
-        color.Set(224, 224, 128, 255);
-        controllerSupportArg.identificationColor[3] = color;
+    //    //識別色を有効化
+    //    controllerSupportArg.enableIdentificationColor = true;
+    //    nn.util.Color4u8 color = new nn.util.Color4u8();
+    //    //赤
+    //    color.Set(255, 128, 128, 255);
+    //    controllerSupportArg.identificationColor[0] = color;
+    //    //青
+    //    color.Set(128, 128, 255, 255);
+    //    controllerSupportArg.identificationColor[1] = color;
+    //    //緑
+    //    color.Set(128, 255, 128, 255);
+    //    controllerSupportArg.identificationColor[2] = color;
+    //    //黄
+    //    color.Set(224, 224, 128, 255);
+    //    controllerSupportArg.identificationColor[3] = color;
 
-        //説明用テキスト
-        controllerSupportArg.enableExplainText = true;
-        ControllerSupport.SetExplainText(ref controllerSupportArg, "Red", NpadId.No1);
-        ControllerSupport.SetExplainText(ref controllerSupportArg, "Blue", NpadId.No2);
-        ControllerSupport.SetExplainText(ref controllerSupportArg, "Green", NpadId.No3);
-        ControllerSupport.SetExplainText(ref controllerSupportArg, "Yellow", NpadId.No4);
+    //    //説明用テキスト
+    //    controllerSupportArg.enableExplainText = true;
+    //    ControllerSupport.SetExplainText(ref controllerSupportArg, "Red", NpadId.No1);
+    //    ControllerSupport.SetExplainText(ref controllerSupportArg, "Blue", NpadId.No2);
+    //    ControllerSupport.SetExplainText(ref controllerSupportArg, "Green", NpadId.No3);
+    //    ControllerSupport.SetExplainText(ref controllerSupportArg, "Yellow", NpadId.No4);
 
-        Debug.Log(controllerSupportArg);
-        result = ControllerSupport.Show(controllerSupportArg);
-        if (!result.IsSuccess())
-        {
-            Debug.Log(result);
-        }
-    }
-    private void OnTriggerEnter(Collider Collision)
-    {
-        if (Collision.gameObject.tag == "SpeedDown")
-        {
-            StartCoroutine("SpeedDown");
-        }
-    }
+    //    Debug.Log(controllerSupportArg);
+    //    result = ControllerSupport.Show(controllerSupportArg);
+    //    if (!result.IsSuccess())
+    //    {
+    //        Debug.Log(result);
+    //    }
+    //}
+    //private void OnTriggerEnter(Collider Collision)
+    //{
+    //    if (Collision.gameObject.tag == "SpeedDown")
+    //    {
+    //        StartCoroutine("SpeedDown");
+    //    }
+    //}
 
-    IEnumerator SpeeDown()
-    {
-        m_moveSpeed = 10.0f;
-        yield return new WaitForSeconds(3.0f);
-        m_moveSpeed = 3.0f;
-    }
+    //IEnumerator SpeeDown()
+    //{
+    //    m_moveSpeed = 10.0f;
+    //    yield return new WaitForSeconds(3.0f);
+    //    m_moveSpeed = 3.0f;
+    //}
 }
