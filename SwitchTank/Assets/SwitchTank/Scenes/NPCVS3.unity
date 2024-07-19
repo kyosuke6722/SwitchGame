@@ -543,6 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 542896625}
   - component: {fileID: 542896624}
+  - component: {fileID: 542896626}
   m_Layer: 0
   m_Name: Battle
   m_TagString: Untagged
@@ -661,6 +662,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &542896626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542896623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8857ea6dbbb363440ac9bf2cb9005e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &583946425 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6804768914982326750, guid: b1718db5f899822438fe78f6342c3aaa, type: 3}
