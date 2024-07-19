@@ -44,8 +44,8 @@ public class MNozzleControllerVS : MonoBehaviour
     private void Update()
     {
         //ƒJƒƒ‰—p‰¡•ûŒü“ü—Í
-        angle1p = Input.GetAxis("GamePad1_R_X")*3;
-        angle2p = Input.GetAxis("GamePad2_R_X")*3;
+        angle1p = Input.GetAxis("GamePad1_R_X")*5;//3
+        angle2p = Input.GetAxis("GamePad2_R_X")*5;//3
         m_interval -= Time.deltaTime;
         m_time++;
         switch (m_player)

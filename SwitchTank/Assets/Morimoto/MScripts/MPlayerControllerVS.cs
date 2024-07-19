@@ -168,8 +168,8 @@ public class MPlayerControllerVS : MonoBehaviour
         if (isKeyInput)
         {
             //ƒvƒŒƒCƒ„[‚ğˆÚ“®•ûŒü‚ÉŒü‚¯‚é
-            Vector3 moveDir = CalcMoveDir(m_horizontalKeyInput, m_verticalKeyInput);
-            transform.forward = moveDir.normalized;
+            //Vector3 moveDir = CalcMoveDir(m_horizontalKeyInput, m_verticalKeyInput);
+            //transform.forward = moveDir.normalized;
         }
     }
 
