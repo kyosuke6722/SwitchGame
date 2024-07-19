@@ -13,6 +13,9 @@ public class KoGameClear : MonoBehaviour
 
     private static KoGameClear ms_instance=null;
 
+    public AudioClip m_clearSound;
+    AudioSource m_audioSource;
+
     public static KoGameClear instance { get { return ms_instance; } }
 
     [SerializeField]
@@ -20,13 +23,20 @@ public class KoGameClear : MonoBehaviour
 
     public void StartGameClear()
     {
+        //有効化
         ms_instance.gameObject.SetActive(true);
+        //SE再生
+        m_audioSource.PlayOneShot(m_clearSound);
+        //「つぎへ」ボタンを選択状態に
         event_system.SetSelectedGameObject(next_button.gameObject);
+
         KoGameManager.instance.SetGameState(KoGameManager.GameState.State_GameClear);
     }
 
     private void Awake()
     {
+        m_audioSource = GetComponent<AudioSource>();
+
         if(ms_instance==null)
         {
             ms_instance = this;

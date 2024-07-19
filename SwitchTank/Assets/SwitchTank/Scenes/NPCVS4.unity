@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: event_system
       value: 
       objectReference: {fileID: 1847523592}
+    - target: {fileID: 629956182105743233, guid: 9347dbc06029f024cb5a02a734bed8cc, type: 3}
+      propertyPath: m_clearSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1c1399d0e0c7d5f45a304e293e646568, type: 3}
     - target: {fileID: 1258120490191687950, guid: 9347dbc06029f024cb5a02a734bed8cc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: NPCVS1
@@ -1163,6 +1167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1305813534}
   - component: {fileID: 1305813533}
+  - component: {fileID: 1305813535}
   m_Layer: 0
   m_Name: Battle
   m_TagString: Untagged
@@ -1281,6 +1286,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1305813535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305813532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8857ea6dbbb363440ac9bf2cb9005e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1320310952
 PrefabInstance:
   m_ObjectHideFlags: 0
