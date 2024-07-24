@@ -19,12 +19,12 @@ public class ugokutyan : MonoBehaviour
     }
     void Swith()
     {
-        x = 0.03f;
+        x = 0.13f;
         Invoke("Swith2", 5.0f);
     }
     void Swith2()
     {
-        x = -0.03f;
+        x = -0.13f;
         Invoke("Swith", 5.0f);
     }
 }

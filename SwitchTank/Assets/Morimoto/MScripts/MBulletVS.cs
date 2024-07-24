@@ -90,7 +90,7 @@ public class MBulletVS : MonoBehaviour
             Destroy(this.gameObject);
             Instantiate(m_effect, transform.position, Quaternion.identity);
         }
-        if (col.gameObject.tag == "Bullet")
+        if (col.gameObject.tag == "Bullet" || col.gameObject.tag == "DestroyWall")
         {
             m_isbulletcol = true;
             switch (m_player)

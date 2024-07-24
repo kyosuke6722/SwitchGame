@@ -50,6 +50,9 @@ public class ButtonEvent : MonoBehaviour
             case 8:
                 SceneManager.LoadScene("PVP3");
                 break;
+            case 9:
+                SceneManager.LoadScene("Credit");
+                break;
         }
         
     }

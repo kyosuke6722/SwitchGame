@@ -18,8 +18,10 @@ public class MPlayerControllerVS : MonoBehaviour
     [SerializeField]
     private GameObject m_zirai = null;
 
-    private const int m_maxzirai = 2;
+    private int m_maxp1zirai = 2;
+    private int m_maxp2zirai = 2;
     public static int m_p1ziraicnt = 0;
+    public static int m_p2ziraicnt = 0;
 
     private float velocity = 5.0f;
 
@@ -46,7 +48,11 @@ public class MPlayerControllerVS : MonoBehaviour
         //Rigidbodyコンポーネントを取得
         m_rigidbody = GetComponent<Rigidbody>();
         //MPFT_NTD_MMControlSystem m_controlSystem;
-}
+        m_maxp1zirai = 2;
+        m_maxp2zirai = 2;
+        m_p2ziraicnt = 0;
+        m_p2ziraicnt = 0;
+    }
 
     //移動ベクトルを算出
     private Vector3 CalcMoveDir(float moveX, float moveZ)
@@ -71,6 +77,14 @@ public class MPlayerControllerVS : MonoBehaviour
                 m_verticalKeyInput = m_controlSystem.MMGamePad[1].MM_Analog_Y;
                 //m_horizontalKeyInput = Input.GetAxis("Horizontal");
                 //m_verticalKeyInput = Input.GetAxis("Vertical");
+                if (m_controlSystem.MMGamePad[1].MM_Left_Y)
+                {
+                    if (m_maxp1zirai > m_p1ziraicnt)
+                    {
+                        m_p1ziraicnt++;
+                        Instantiate(m_zirai, transform.position, Quaternion.identity);
+                    }
+                }
                 break;
             case 2:
                 //移動キー入力取得
@@ -78,6 +92,14 @@ public class MPlayerControllerVS : MonoBehaviour
                 m_verticalKeyInput = m_controlSystem.MMGamePad[2].MM_Analog_Y;
                 //m_horizontalKeyInput = Input.GetAxis("Horizontal");
                 //m_verticalKeyInput = Input.GetAxis("Vertical");
+                if (m_controlSystem.MMGamePad[2].MM_Right_A)
+                {
+                    if (m_maxp2zirai > m_p2ziraicnt)
+                    {
+                        m_p2ziraicnt++;
+                        Instantiate(m_zirai, transform.position, Quaternion.identity);
+                    }
+                }
                 break;
             case 3:
                 
@@ -105,9 +127,9 @@ public class MPlayerControllerVS : MonoBehaviour
                 {
                     m_rigidbody.velocity = new Vector3(-velocity, 0, 0);
                 }
-                if (Input.GetKeyDown(KeyCode.Mouse1))
+                if (Input.GetKeyDown(KeyCode.Mouse1) || m_controlSystem.MMGamePad[1].MM_Right_A)
                 {
-                    if (m_maxzirai > m_p1ziraicnt)
+                    if (m_maxp1zirai > m_p1ziraicnt)
                     {
                         m_p1ziraicnt++;
                         Instantiate(m_zirai, transform.position, Quaternion.identity);
@@ -132,6 +154,14 @@ public class MPlayerControllerVS : MonoBehaviour
                 {
                     m_rigidbody.velocity = new Vector3(-velocity, 0, 0);
                 }
+                if (Input.GetKeyDown(KeyCode.Mouse2) || m_controlSystem.MMGamePad[2].MM_Left_Y)
+                {
+                    if (m_maxp2zirai > m_p2ziraicnt)
+                    {
+                        m_p2ziraicnt++;
+                        Instantiate(m_zirai, transform.position, Quaternion.identity);
+                    }
+                }
                 break;
         }
         //移動キーが入力されているか
@@ -139,14 +169,14 @@ public class MPlayerControllerVS : MonoBehaviour
         if (isKeyInput)
         {
             //プレイヤーを移動方向に向ける
-            Vector3 moveDir = CalcMoveDir(m_horizontalKeyInput, m_verticalKeyInput);
-            transform.forward = moveDir.normalized;
+            //Vector3 moveDir = CalcMoveDir(m_horizontalKeyInput, m_verticalKeyInput);
+            //transform.forward = moveDir.normalized;
         }
     }
 
     private void FixedUpdate()
     {
-        if (m_player != 5 && m_player != 6)
+        //if (m_player != 5 && m_player != 6)
         {
             //キー入力による移動量を求める
             Vector3 move = CalcMoveDir(m_horizontalKeyInput, m_verticalKeyInput) * m_moveSpeed;
