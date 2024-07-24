@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 280272749102310967}
   - component: {fileID: 6001424890600244335}
   - component: {fileID: 18975561375199885}
+  - component: {fileID: 5891421489992108325}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -147,3 +148,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bounce: 1
+--- !u!114 &5891421489992108325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3657363414213014454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9d3f7682e693243bb9e4a20c9155c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JiraiEffectPrefab: {fileID: 100000, guid: 5d028565f79e270408884b995abc06ef, type: 3}
+  BulletEffectPrefab: {fileID: 100000, guid: 5d028565f79e270408884b995abc06ef, type: 3}
+  se: {fileID: 8300000, guid: e38d15acc459da849a63c0deaa71fd1d, type: 3}

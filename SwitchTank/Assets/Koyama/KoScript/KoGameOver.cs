@@ -13,6 +13,9 @@ public class KoGameOver : MonoBehaviour
 
     private static KoGameOver ms_instance = null;
 
+    public AudioClip m_sound;
+    AudioSource m_audioSource;
+
     public static KoGameOver instance { get { return ms_instance; } }
 
     [SerializeField]
@@ -20,14 +23,22 @@ public class KoGameOver : MonoBehaviour
 
     public void StartGameOver()
     {
+        //有効化
         ms_instance.gameObject.SetActive(true);
+        //SE再生
+        m_audioSource.PlayOneShot(m_sound);
+        //「リトライ」ボタンを選択状態に
         event_system.SetSelectedGameObject(retry_button.gameObject);
+
         KoGameManager.instance.SetGameState(KoGameManager.GameState.State_GameOver);
-        KoGameManager.instance.SetLife(KoGameManager.instance.GetLife()-1);
+        //ライフ減少
+        KoGameManager.instance.SetLife(KoGameManager.instance.GetLife() - 1);
     }
 
     private void Awake()
     {
+        m_audioSource = GetComponent<AudioSource>();
+
         if (ms_instance == null)
         {
             ms_instance = this;

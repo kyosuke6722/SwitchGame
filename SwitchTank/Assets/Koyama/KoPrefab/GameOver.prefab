@@ -79,7 +79,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Over
+  m_Text: "\u30B2\u30FC\u30E0\u30AA\u30FC\u30D0\u30FC"
 --- !u!114 &443247623239083528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3281738028363394581}
   - component: {fileID: 5037239762569510007}
-  - component: {fileID: 6740045827434832730}
+  - component: {fileID: 2110905317151557968}
   m_Layer: 5
   m_Name: LifeIcon1
   m_TagString: Untagged
@@ -197,7 +197,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2878393801935596854}
   m_CullTransparentMesh: 1
---- !u!114 &6740045827434832730
+--- !u!114 &2110905317151557968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2878393801935596854}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -217,16 +217,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 2800000, guid: 2c792627b9cbd4941a30b9c5050a85ac, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &3063251925643902442
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +302,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Retry
+  m_Text: "\u3064\u3065\u3051\u308B"
 --- !u!1 &3405653954004516316
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5152361529096103292}
   - component: {fileID: 2152195895242032569}
-  - component: {fileID: 5717668414608683827}
+  - component: {fileID: 2147805887373595003}
   m_Layer: 5
   m_Name: LifeIcon4
   m_TagString: Untagged
@@ -351,7 +348,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3405653954004516316}
   m_CullTransparentMesh: 1
---- !u!114 &5717668414608683827
+--- !u!114 &2147805887373595003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -360,7 +357,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3405653954004516316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -371,16 +368,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 2800000, guid: 2c792627b9cbd4941a30b9c5050a85ac, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &3675225541692068756
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +453,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Title
+  m_Text: "\u304A\u308F\u308B"
 --- !u!1 &4175018445726496874
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,7 +464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7690884442220608792}
   - component: {fileID: 5748396078413901372}
-  - component: {fileID: 6630406322315776526}
+  - component: {fileID: 2526315327519534364}
   m_Layer: 5
   m_Name: LifeIcon2
   m_TagString: Untagged
@@ -505,7 +499,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4175018445726496874}
   m_CullTransparentMesh: 1
---- !u!114 &6630406322315776526
+--- !u!114 &2526315327519534364
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -514,7 +508,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4175018445726496874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -525,16 +519,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 2800000, guid: 2c792627b9cbd4941a30b9c5050a85ac, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &4619642419220039866
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,7 +657,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Title
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &3862933125480512673
@@ -839,6 +830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7366814198641708615}
   - component: {fileID: 510824119584084470}
+  - component: {fileID: 859028792702909487}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -883,7 +875,104 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   retry_button: {fileID: 2228299996419622808}
   event_system: {fileID: 0}
+  m_sound: {fileID: 8300000, guid: 4ee44eec1ff51a647b06be9380083229, type: 3}
   m_lifePanel: {fileID: 7609822727765123452}
+--- !u!82 &859028792702909487
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5285047019084647251}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5343076048646506029
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,7 +983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4342250825512440122}
   - component: {fileID: 7301757043846297521}
-  - component: {fileID: 8715162147643043561}
+  - component: {fileID: 101645639924568223}
   m_Layer: 5
   m_Name: LifeIcon3
   m_TagString: Untagged
@@ -929,7 +1018,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5343076048646506029}
   m_CullTransparentMesh: 1
---- !u!114 &8715162147643043561
+--- !u!114 &101645639924568223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -938,7 +1027,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5343076048646506029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -949,13 +1038,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 2800000, guid: 2c792627b9cbd4941a30b9c5050a85ac, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1

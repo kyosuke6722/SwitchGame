@@ -38,6 +38,7 @@ public class KoPlayer : MonoBehaviour
 
     //public MPFT_NTD_MMControlSystem m_controlSystem = null;
 
+    // ハンドヘルドプレイパッド
     [SerializeField]
     public struct NTD_SGGamePad
     {
@@ -64,6 +65,7 @@ public class KoPlayer : MonoBehaviour
     [SerializeField]
     public NTD_SGGamePad SGGamePad = new NTD_SGGamePad();
 
+    // マルチプレイパッド（お裾分け）
     [SerializeField]
     public struct NTD_MMGamePad
     {
@@ -82,18 +84,18 @@ public class KoPlayer : MonoBehaviour
     };
     [SerializeField]
     public NTD_MMGamePad[] MMGamePad = new NTD_MMGamePad[4];
+#if false
+    // 4 players
+    private NpadId[] npadIds ={ NpadId.Handheld, NpadId.No1, NpadId.No2, NpadId.No3, NpadId.No4 };
+#else
+    // 2 players
+    private NpadId[] npadIds = { NpadId.Handheld, NpadId.No1, NpadId.No2 };
+#endif
 
     //コントロール格納
     private ControllerSupportArg controllerSupportArg = new ControllerSupportArg();
     //nnリクエスト
     private nn.Result result = new nn.Result();
-
-    private NpadId[] npadIds =
-    {
-        NpadId.Handheld,
-        NpadId.No1,
-        NpadId.No2
-    };
 
     public NpadState npadState = new NpadState();
 
@@ -141,38 +143,33 @@ public class KoPlayer : MonoBehaviour
     {
         m_interval -= Time.deltaTime;
 
-        //PadCheck();
+        PadCheck();
 
-        ////パッドIdを取得
-        //NpadId npadId = npadIds[1];
+        //パッドIdを取得
+        NpadId npadId = npadIds[1];
 
-        ////パッドの現在のスタイルを獲得
-        //NpadStyle npadStyle = Npad.GetStyleSet(npadId);
+        //パッドの現在のスタイルを獲得
+        NpadStyle npadStyle = Npad.GetStyleSet(npadId);
 
-        ////パッドが存在してない
+        //パッドが存在してない
         //if (npadStyle == NpadStyle.None) return;
 
-        ////パッドの状態を獲得
-        //Npad.GetState(ref npadState, npadId, npadStyle);
-        //switch (npadStyle)
-        //{
-        //    ///左パッド
-        //    ///右パッド
-        //    case NpadStyle.JoyLeft:
-        //    case NpadStyle.JoyRight:
-        //        m_horizontalKeyInput = MMGamePad[1].MM_Analog_X;
-        //        m_verticalKeyInput = MMGamePad[1].MM_Analog_Y;
-        //        break;
-        //    case NpadStyle.Handheld:
-        //    case NpadStyle.FullKey:
-        //    case NpadStyle.JoyDual:
-        //        m_horizontalKeyInput = SGGamePad.L_Analog_X;
-        //        m_verticalKeyInput = SGGamePad.L_Analog_Y;
-        //        break;
-        //}
-
-        m_horizontalKeyInput = Input.GetAxis("Horizontal");
-        m_verticalKeyInput = Input.GetAxis("Vertical");
+        //パッドの状態を獲得
+        Npad.GetState(ref npadState, npadId, npadStyle);
+        switch (npadStyle)
+        {
+            ///左パッド
+            ///右パッド
+            case NpadStyle.JoyLeft:
+            case NpadStyle.JoyRight:
+                m_horizontalKeyInput = MMGamePad[1].MM_Analog_X;
+                m_verticalKeyInput = MMGamePad[1].MM_Analog_Y;
+                break;
+            default:
+                m_horizontalKeyInput = Input.GetAxis("Horizontal");
+                m_verticalKeyInput = Input.GetAxis("Vertical");
+                break;
+        }
 
         NpadButton onButtons = 0;
         if ((onButtons & (NpadButton.Plus | NpadButton.Minus)) != 0)
@@ -243,7 +240,6 @@ public class KoPlayer : MonoBehaviour
     {
         if(KoGameManager.instance.GetGameState()==KoGameManager.GameState.State_Game)
             KoGameOver.instance.StartGameOver();
-            //SceneManager.LoadScene(gameover_scene);
     }
 
     void PadCheck()

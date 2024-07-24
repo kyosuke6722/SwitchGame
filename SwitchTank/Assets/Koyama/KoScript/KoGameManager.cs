@@ -53,5 +53,9 @@ public class KoGameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //カーソルをロック&非表示
+        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

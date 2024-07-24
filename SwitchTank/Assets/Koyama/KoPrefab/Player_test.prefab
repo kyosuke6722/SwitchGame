@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8968365659615336020}
   - component: {fileID: 2972717017775095765}
   - component: {fileID: 7695653948306510533}
+  - component: {fileID: 8766249515399522178}
   m_Layer: 6
   m_Name: Player_test
   m_TagString: Player
@@ -154,6 +155,21 @@ MonoBehaviour:
   m_pow: 5
   m_cannonTips: {fileID: 5527770949340320886}
   m_intervalTime: 1
+--- !u!114 &8766249515399522178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617575773946228659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9d3f7682e693243bb9e4a20c9155c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JiraiEffectPrefab: {fileID: 100000, guid: 5d028565f79e270408884b995abc06ef, type: 3}
+  BulletEffectPrefab: {fileID: 100000, guid: 5d028565f79e270408884b995abc06ef, type: 3}
+  se: {fileID: 8300000, guid: e38d15acc459da849a63c0deaa71fd1d, type: 3}
 --- !u!1 &4528174331226439836
 GameObject:
   m_ObjectHideFlags: 0
