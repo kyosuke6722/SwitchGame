@@ -188,8 +188,6 @@ public class KoPlayer : MonoBehaviour
             m_rigidbody.velocity += new Vector3(0, 0, m_verticalKeyInput * m_moveSpeed);
         }
 
-        //for(int i = 0;i<npadIds.Length;i++)
-        //{
         //ƒwƒbƒh‰ñ“](¶)
         if (SGGamePad.MM_TL || MMGamePad[1].MM_SL || Input.GetKey(KeyCode.LeftArrow))
         {
@@ -221,7 +219,6 @@ public class KoPlayer : MonoBehaviour
                 m_interval = m_intervalTime;
             }
         }
-        //}
     }
 
     private void FixedUpdate()
