@@ -28,7 +28,7 @@ public class KoGameClear : MonoBehaviour
         //SE再生
         m_audioSource.PlayOneShot(m_clearSound);
         //「つぎへ」ボタンを選択状態に
-        event_system.SetSelectedGameObject(next_button.gameObject);
+        //event_system.SetSelectedGameObject(next_button.gameObject);
 
         KoGameManager.instance.SetGameState(KoGameManager.GameState.State_GameClear);
     }

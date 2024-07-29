@@ -36,8 +36,6 @@ public class KoPlayer : MonoBehaviour
     private Camera m_mainCamera = null;
     private Rigidbody m_rigidbody = null;
 
-    //public MPFT_NTD_MMControlSystem m_controlSystem = null;
-
     // ハンドヘルドプレイパッド
     [SerializeField]
     public struct NTD_SGGamePad
