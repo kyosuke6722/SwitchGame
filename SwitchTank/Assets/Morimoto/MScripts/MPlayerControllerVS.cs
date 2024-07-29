@@ -18,8 +18,10 @@ public class MPlayerControllerVS : MonoBehaviour
     [SerializeField]
     private GameObject m_zirai = null;
 
-    private int m_maxp1zirai = 2;
-    private int m_maxp2zirai = 2;
+    //private int m_maxp1zirai = 2;
+    private int m_maxp1zirai = 1;
+    //private int m_maxp2zirai = 2;
+    private int m_maxp2zirai = 1;
     public static int m_p1ziraicnt = 0;
     public static int m_p2ziraicnt = 0;
 
@@ -48,8 +50,10 @@ public class MPlayerControllerVS : MonoBehaviour
         //Rigidbodyコンポーネントを取得
         m_rigidbody = GetComponent<Rigidbody>();
         //MPFT_NTD_MMControlSystem m_controlSystem;
-        m_maxp1zirai = 2;
-        m_maxp2zirai = 2;
+        //m_maxp1zirai = 2;
+        m_maxp1zirai = 1;
+        //m_maxp2zirai = 2;
+        m_maxp2zirai = 1;
         m_p2ziraicnt = 0;
         m_p2ziraicnt = 0;
     }
