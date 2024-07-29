@@ -285,7 +285,7 @@ public class MPFT_NTD_MMControlSystem : MonoBehaviour
         if (MMGamePad[No].MM_Up_B) DebugMes += "[Up],";
         MMGamePad[No].MM_Down_X = NS.GetButton(NpadButton.Down);
         if (MMGamePad[No].MM_Down_X) DebugMes += "[Down],";
-        MMGamePad[No].MM_Left_Y = NS.GetButton(NpadButton.Left);
+        MMGamePad[No].MM_Left_Y = NS.GetButtonDown(NpadButton.Left);//MMGamePad[No].MM_Left_Y = NS.GetButton(NpadButton.Left);
         if (MMGamePad[No].MM_Left_Y) DebugMes += "[left],";
         MMGamePad[No].MM_Right_A = NS.GetButton(NpadButton.Right);
         if (MMGamePad[No].MM_Right_A) DebugMes += "[Right],";
@@ -330,7 +330,7 @@ public class MPFT_NTD_MMControlSystem : MonoBehaviour
         if (MMGamePad[No].MM_Down_X) DebugMes += "[X],";
         MMGamePad[No].MM_Left_Y = NS.GetButton(NpadButton.Y);
         if (MMGamePad[No].MM_Left_Y) DebugMes += "[Y],";
-        MMGamePad[No].MM_Right_A = NS.GetButton(NpadButton.A);
+        MMGamePad[No].MM_Right_A = NS.GetButtonDown(NpadButton.A);//MMGamePad[No].MM_Right_A = NS.GetButton(NpadButton.A);
         if (MMGamePad[No].MM_Right_A) DebugMes += "[A],";
 
         DebugMes += "\n";
