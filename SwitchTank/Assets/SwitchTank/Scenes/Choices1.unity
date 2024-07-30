@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -4806,10 +4806,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1589570234}
+    m_SelectOnDown: {fileID: 2011317421}
+    m_SelectOnLeft: {fileID: 2011317421}
+    m_SelectOnRight: {fileID: 290883853}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -4836,8 +4836,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 129577825}
-        m_TargetAssemblyTypeName: MButtonManagerSlct, Assembly-CSharp
-        m_MethodName: OnPressed
+        m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
+        m_MethodName: SwitchScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4894,10 +4894,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 129577820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f175f21b145cf43a906cacb10a510e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e07b929dfb81f142a574fb2574ec458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_stage: 0
+  m_stage: 20
 --- !u!1 &131345653
 GameObject:
   m_ObjectHideFlags: 0
@@ -12430,10 +12430,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1332976048}
+    m_SelectOnDown: {fileID: 412489640}
+    m_SelectOnLeft: {fileID: 129577822}
+    m_SelectOnRight: {fileID: 412489640}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -12459,9 +12459,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 129577825}
-        m_TargetAssemblyTypeName: MButtonManagerSlct, Assembly-CSharp
-        m_MethodName: OnPressed
+      - m_Target: {fileID: 290883856}
+        m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
+        m_MethodName: SwitchScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12518,7 +12518,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 290883851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f175f21b145cf43a906cacb10a510e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e07b929dfb81f142a574fb2574ec458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_stage: 0
@@ -17922,7 +17922,7 @@ GameObject:
   - component: {fileID: 412489640}
   - component: {fileID: 412489643}
   m_Layer: 5
-  m_Name: Stage1
+  m_Name: Stage0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17963,10 +17963,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 290883853}
+    m_SelectOnDown: {fileID: 1332976048}
+    m_SelectOnLeft: {fileID: 290883853}
+    m_SelectOnRight: {fileID: 697555792}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -17992,9 +17992,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 129577825}
-        m_TargetAssemblyTypeName: MButtonManagerSlct, Assembly-CSharp
-        m_MethodName: OnPressed
+      - m_Target: {fileID: 412489643}
+        m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
+        m_MethodName: SwitchScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18051,10 +18051,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 412489638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f175f21b145cf43a906cacb10a510e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e07b929dfb81f142a574fb2574ec458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_stage: 0
+  m_stage: 11
 --- !u!1 &414002174
 GameObject:
   m_ObjectHideFlags: 0
@@ -29154,7 +29154,7 @@ GameObject:
   - component: {fileID: 697555792}
   - component: {fileID: 697555795}
   m_Layer: 5
-  m_Name: Stage2
+  m_Name: Stage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29195,10 +29195,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1864330501}
+    m_SelectOnDown: {fileID: 1864330501}
+    m_SelectOnLeft: {fileID: 412489640}
+    m_SelectOnRight: {fileID: 1589570234}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -29224,9 +29224,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 129577825}
-        m_TargetAssemblyTypeName: MButtonManagerSlct, Assembly-CSharp
-        m_MethodName: OnPressed
+      - m_Target: {fileID: 697555795}
+        m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
+        m_MethodName: SwitchScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29283,10 +29283,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 697555790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f175f21b145cf43a906cacb10a510e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e07b929dfb81f142a574fb2574ec458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_stage: 0
+  m_stage: 12
 --- !u!1 &698153632
 GameObject:
   m_ObjectHideFlags: 0
@@ -51497,7 +51497,7 @@ GameObject:
   - component: {fileID: 1332976048}
   - component: {fileID: 1332976051}
   m_Layer: 5
-  m_Name: Stage4
+  m_Name: Stage3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51538,10 +51538,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 412489640}
+    m_SelectOnDown: {fileID: 290883853}
+    m_SelectOnLeft: {fileID: 290883853}
+    m_SelectOnRight: {fileID: 1864330501}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -51567,9 +51567,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 129577825}
-        m_TargetAssemblyTypeName: MButtonManagerSlct, Assembly-CSharp
-        m_MethodName: OnPressed
+      - m_Target: {fileID: 1332976051}
+        m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
+        m_MethodName: SwitchScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -51626,10 +51626,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1332976046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f175f21b145cf43a906cacb10a510e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e07b929dfb81f142a574fb2574ec458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_stage: 0
+  m_stage: 14
 --- !u!1 &1343127850
 GameObject:
   m_ObjectHideFlags: 0
@@ -59813,7 +59813,7 @@ GameObject:
   - component: {fileID: 1589570234}
   - component: {fileID: 1589570237}
   m_Layer: 5
-  m_Name: Stage3
+  m_Name: Stage2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59854,10 +59854,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 2011317421}
+    m_SelectOnDown: {fileID: 2011317421}
+    m_SelectOnLeft: {fileID: 697555792}
+    m_SelectOnRight: {fileID: 129577822}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -59883,9 +59883,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 129577825}
-        m_TargetAssemblyTypeName: MButtonManagerSlct, Assembly-CSharp
-        m_MethodName: OnPressed
+      - m_Target: {fileID: 1589570237}
+        m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
+        m_MethodName: SwitchScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -59942,10 +59942,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1589570232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f175f21b145cf43a906cacb10a510e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e07b929dfb81f142a574fb2574ec458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_stage: 0
+  m_stage: 13
 --- !u!1 &1589988254
 GameObject:
   m_ObjectHideFlags: 0
@@ -70351,7 +70351,7 @@ GameObject:
   - component: {fileID: 1864330501}
   - component: {fileID: 1864330504}
   m_Layer: 5
-  m_Name: Stage5
+  m_Name: Stage4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70392,10 +70392,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 697555792}
+    m_SelectOnDown: {fileID: 697555792}
+    m_SelectOnLeft: {fileID: 1332976048}
+    m_SelectOnRight: {fileID: 2011317421}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -70421,9 +70421,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 129577825}
-        m_TargetAssemblyTypeName: MButtonManagerSlct, Assembly-CSharp
-        m_MethodName: OnPressed
+      - m_Target: {fileID: 1864330504}
+        m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
+        m_MethodName: SwitchScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -70480,10 +70480,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1864330499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f175f21b145cf43a906cacb10a510e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e07b929dfb81f142a574fb2574ec458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_stage: 0
+  m_stage: 15
 --- !u!1 &1866021590
 GameObject:
   m_ObjectHideFlags: 0
@@ -74217,10 +74217,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 412489640}
+    m_SelectOnDown: {fileID: 1332976048}
+    m_SelectOnLeft: {fileID: 412489640}
+    m_SelectOnRight: {fileID: 290883853}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -74246,9 +74246,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 129577825}
-        m_TargetAssemblyTypeName: MButtonManagerSlct, Assembly-CSharp
-        m_MethodName: OnPressed
+      - m_Target: {fileID: 1962117039}
+        m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
+        m_MethodName: SwitchScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -74305,7 +74305,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1962117034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f175f21b145cf43a906cacb10a510e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e07b929dfb81f142a574fb2574ec458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_stage: 0
@@ -76352,7 +76352,7 @@ GameObject:
   - component: {fileID: 2011317421}
   - component: {fileID: 2011317424}
   m_Layer: 5
-  m_Name: Stage6
+  m_Name: Stage5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76393,10 +76393,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1589570234}
+    m_SelectOnDown: {fileID: 1589570234}
+    m_SelectOnLeft: {fileID: 1864330501}
+    m_SelectOnRight: {fileID: 129577822}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -76422,9 +76422,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 129577825}
-        m_TargetAssemblyTypeName: MButtonManagerSlct, Assembly-CSharp
-        m_MethodName: OnPressed
+      - m_Target: {fileID: 2011317424}
+        m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
+        m_MethodName: SwitchScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -76481,10 +76481,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2011317419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f175f21b145cf43a906cacb10a510e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e07b929dfb81f142a574fb2574ec458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_stage: 0
+  m_stage: 16
 --- !u!1 &2014068504
 GameObject:
   m_ObjectHideFlags: 0
