@@ -28,7 +28,7 @@ public class KoGameOver : MonoBehaviour
         //SE再生
         m_audioSource.PlayOneShot(m_sound);
         //「リトライ」ボタンを選択状態に
-        //event_system.SetSelectedGameObject(retry_button.gameObject);
+        event_system.SetSelectedGameObject(retry_button.gameObject);
 
         KoGameManager.instance.SetGameState(KoGameManager.GameState.State_GameOver);
         //ライフ減少

@@ -15,6 +15,9 @@ public class KoEnemyLandmine : MonoBehaviour
     //•ûŒü“]Š·‚·‚é‚Ü‚Å‚ÌŽžŠÔ
     [SerializeField]
     private float m_wanderCnt = 5.0f;
+    //’n—‹
+    [SerializeField]
+    private GameObject m_zirai = null;
 
     private NavMeshAgent m_navMeshAgent;
     private float m_cnt;
@@ -41,6 +44,7 @@ public class KoEnemyLandmine : MonoBehaviour
         {
             Vector3 newPos = RandomNavSphere(transform.position, m_moveSpeed, -1);
             m_navMeshAgent.SetDestination(newPos);
+            Instantiate(m_zirai, transform.position, Quaternion.identity);
             m_cnt = 0;
         }
     }

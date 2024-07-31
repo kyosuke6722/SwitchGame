@@ -25,7 +25,7 @@ public class KoButtonRetry : MonoBehaviour
         if(KoGameManager.instance.GetLife()<=0)
         {
             m_button.interactable = false;
-            //event_system.SetSelectedGameObject(title_button.gameObject);
+            event_system.SetSelectedGameObject(title_button.gameObject);
         }
     }
 
